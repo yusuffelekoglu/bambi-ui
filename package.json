@@ -7,8 +7,10 @@
     "lint": "turbo run lint",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
     "check-types": "turbo run check-types",
-    "deploy:docs": "pnpm --filter docs build && wrangler pages deploy apps/docs/dist --project-name=bambiui-docs",
-    "deploy:storybook": "pnpm --filter storybook build && wrangler pages deploy apps/storybook/storybook-static --project-name=bambiui-storybook"
+    "build:docs": "turbo build --filter=docs...",
+    "build:storybook": "turbo build --filter=storybook...",
+    "deploy:docs": "pnpm build:docs && wrangler pages deploy apps/docs/dist --project-name=bambiui-docs",
+    "deploy:storybook": "pnpm build:storybook && wrangler pages deploy apps/storybook/storybook-static --project-name=bambiui-storybook"
   },
   "devDependencies": {
     "prettier": "^3.7.4",
