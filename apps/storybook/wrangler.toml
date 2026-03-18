@@ -1,0 +1,5 @@
+name = "bambiui-storybook"
+pages_build_output_dir = "storybook-static"
+
+[env.production]
+route = { pattern = "storybook.bambiui.felekoglu.dev", custom_domain = true }
