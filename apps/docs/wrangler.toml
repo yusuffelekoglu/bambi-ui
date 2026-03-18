@@ -1,5 +1,0 @@
-name = "bambiui-docs"
-pages_build_output_dir = "dist"
-
-[env.production]
-route = { pattern = "bambiui.felekoglu.dev", custom_domain = true }

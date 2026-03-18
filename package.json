@@ -8,9 +8,7 @@
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
     "check-types": "turbo run check-types",
     "build:docs": "turbo build --filter=docs...",
-    "build:storybook": "turbo build --filter=storybook...",
-    "deploy:docs": "pnpm build:docs && wrangler pages deploy apps/docs/dist --project-name=bambiui-docs",
-    "deploy:storybook": "pnpm build:storybook && wrangler pages deploy apps/storybook/storybook-static --project-name=bambiui-storybook"
+    "build:storybook": "turbo build --filter=storybook..."
   },
   "devDependencies": {
     "prettier": "^3.7.4",
