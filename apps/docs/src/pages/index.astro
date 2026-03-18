@@ -1,0 +1,22 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title="Overview">
+  <div class="max-w-3xl mx-auto px-8 py-12">
+    <h1 class="text-display font-bold text-text-primary mb-4">bambi-ui</h1>
+    <p class="text-lg text-text-secondary mb-8">
+      React component library built with Tailwind CSS v4, CVA, and Radix UI.
+    </p>
+
+    <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
+      <a
+        href="/components/button"
+        class="group block p-5 rounded-xl border border-surface-border bg-surface-0 hover:border-brand-300 hover:bg-surface-1 transition-colors"
+      >
+        <div class="text-sm font-semibold text-text-primary mb-1 group-hover:text-brand-600 transition-colors">Button</div>
+        <div class="text-sm text-text-secondary">Triggers actions. Supports 5 variants, 4 sizes, loading state, and asChild.</div>
+      </a>
+    </div>
+  </div>
+</Layout>

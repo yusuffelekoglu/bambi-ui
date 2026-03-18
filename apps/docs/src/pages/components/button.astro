@@ -1,0 +1,113 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import {
+  ButtonVariants,
+  ButtonSizes,
+  ButtonLoading,
+  ButtonAsChild,
+} from "../../components/ButtonDemo";
+---
+
+<Layout title="Button">
+  <div class="max-w-3xl mx-auto px-8 py-12">
+    <div class="mb-10">
+      <p class="text-sm text-brand-600 font-medium mb-1">Core</p>
+      <h1 class="text-display-xl font-bold text-text-primary mb-3">Button</h1>
+      <p class="text-lg text-text-secondary">
+        Triggers actions. Supports 5 variants, 4 sizes, loading state, and <code class="text-sm bg-surface-2 border border-surface-border rounded px-1.5 py-0.5 font-mono">asChild</code> for polymorphic rendering.
+      </p>
+    </div>
+
+    <!-- Variants -->
+    <section class="mb-10">
+      <h2 class="text-base font-semibold text-text-primary mb-1">Variants</h2>
+      <p class="text-sm text-text-secondary mb-4">
+        Use <code class="font-mono text-xs bg-surface-2 border border-surface-border rounded px-1 py-0.5">variant</code> to communicate intent.
+      </p>
+      <div class="rounded-xl border border-surface-border bg-surface-1 p-6">
+        <ButtonVariants client:load />
+      </div>
+    </section>
+
+    <!-- Sizes -->
+    <section class="mb-10">
+      <h2 class="text-base font-semibold text-text-primary mb-1">Sizes</h2>
+      <p class="text-sm text-text-secondary mb-4">
+        Four sizes: <code class="font-mono text-xs bg-surface-2 border border-surface-border rounded px-1 py-0.5">sm</code>, <code class="font-mono text-xs bg-surface-2 border border-surface-border rounded px-1 py-0.5">md</code> (default), <code class="font-mono text-xs bg-surface-2 border border-surface-border rounded px-1 py-0.5">lg</code>, <code class="font-mono text-xs bg-surface-2 border border-surface-border rounded px-1 py-0.5">icon</code>.
+      </p>
+      <div class="rounded-xl border border-surface-border bg-surface-1 p-6">
+        <ButtonSizes client:load />
+      </div>
+    </section>
+
+    <!-- Loading -->
+    <section class="mb-10">
+      <h2 class="text-base font-semibold text-text-primary mb-1">Loading</h2>
+      <p class="text-sm text-text-secondary mb-4">
+        The <code class="font-mono text-xs bg-surface-2 border border-surface-border rounded px-1 py-0.5">loading</code> prop disables the button and shows a spinner. Sets <code class="font-mono text-xs bg-surface-2 border border-surface-border rounded px-1 py-0.5">aria-busy</code> for accessibility.
+      </p>
+      <div class="rounded-xl border border-surface-border bg-surface-1 p-6">
+        <ButtonLoading client:load />
+      </div>
+    </section>
+
+    <!-- asChild -->
+    <section class="mb-10">
+      <h2 class="text-base font-semibold text-text-primary mb-1">asChild</h2>
+      <p class="text-sm text-text-secondary mb-4">
+        Use <code class="font-mono text-xs bg-surface-2 border border-surface-border rounded px-1 py-0.5">asChild</code> to render the button as any element (e.g. <code class="font-mono text-xs bg-surface-2 border border-surface-border rounded px-1 py-0.5">&lt;a&gt;</code>, Next.js <code class="font-mono text-xs bg-surface-2 border border-surface-border rounded px-1 py-0.5">Link</code>) while keeping all styles.
+      </p>
+      <div class="rounded-xl border border-surface-border bg-surface-1 p-6">
+        <ButtonAsChild client:only="react" />
+      </div>
+    </section>
+
+    <!-- API -->
+    <section>
+      <h2 class="text-base font-semibold text-text-primary mb-4">API</h2>
+      <div class="rounded-xl border border-surface-border overflow-hidden">
+        <table class="w-full text-sm">
+          <thead class="bg-surface-1 border-b border-surface-border">
+            <tr>
+              <th class="text-left px-4 py-3 font-semibold text-text-primary">Prop</th>
+              <th class="text-left px-4 py-3 font-semibold text-text-primary">Type</th>
+              <th class="text-left px-4 py-3 font-semibold text-text-primary">Default</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-surface-border">
+            <tr class="bg-surface-0">
+              <td class="px-4 py-3 font-mono text-xs text-brand-600">variant</td>
+              <td class="px-4 py-3 text-text-secondary font-mono text-xs">primary | secondary | ghost | danger | outline</td>
+              <td class="px-4 py-3 text-text-tertiary font-mono text-xs">primary</td>
+            </tr>
+            <tr class="bg-surface-1">
+              <td class="px-4 py-3 font-mono text-xs text-brand-600">size</td>
+              <td class="px-4 py-3 text-text-secondary font-mono text-xs">sm | md | lg | icon</td>
+              <td class="px-4 py-3 text-text-tertiary font-mono text-xs">md</td>
+            </tr>
+            <tr class="bg-surface-0">
+              <td class="px-4 py-3 font-mono text-xs text-brand-600">loading</td>
+              <td class="px-4 py-3 text-text-secondary font-mono text-xs">boolean</td>
+              <td class="px-4 py-3 text-text-tertiary font-mono text-xs">false</td>
+            </tr>
+            <tr class="bg-surface-1">
+              <td class="px-4 py-3 font-mono text-xs text-brand-600">asChild</td>
+              <td class="px-4 py-3 text-text-secondary font-mono text-xs">boolean</td>
+              <td class="px-4 py-3 text-text-tertiary font-mono text-xs">false</td>
+            </tr>
+            <tr class="bg-surface-0">
+              <td class="px-4 py-3 font-mono text-xs text-brand-600">leftIcon</td>
+              <td class="px-4 py-3 text-text-secondary font-mono text-xs">ReactNode</td>
+              <td class="px-4 py-3 text-text-tertiary font-mono text-xs">—</td>
+            </tr>
+            <tr class="bg-surface-1">
+              <td class="px-4 py-3 font-mono text-xs text-brand-600">rightIcon</td>
+              <td class="px-4 py-3 text-text-secondary font-mono text-xs">ReactNode</td>
+              <td class="px-4 py-3 text-text-tertiary font-mono text-xs">—</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </div>
+</Layout>

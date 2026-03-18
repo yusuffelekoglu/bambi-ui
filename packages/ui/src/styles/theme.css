@@ -1,0 +1,73 @@
+@theme {
+  /* ── Brand ─────────────────────────────────────── */
+  --color-brand-50: oklch(97% 0.01 250);
+  --color-brand-100: oklch(93% 0.03 250);
+  --color-brand-200: oklch(86% 0.07 250);
+  --color-brand-300: oklch(75% 0.12 250);
+  --color-brand-400: oklch(63% 0.16 250);
+  --color-brand-500: oklch(52% 0.18 250);
+  --color-brand-600: oklch(44% 0.18 250);
+  --color-brand-700: oklch(36% 0.15 250);
+  --color-brand-800: oklch(28% 0.12 250);
+  --color-brand-900: oklch(20% 0.08 250);
+  --color-brand-950: oklch(13% 0.05 250);
+
+  /* ── Semantic colors ─────────────────────── */
+  --color-success: oklch(55% 0.16 145);
+  --color-success-light: oklch(92% 0.05 145);
+  --color-success-foreground: oklch(97% 0.02 145);
+
+  --color-danger: oklch(55% 0.20 25);
+  --color-danger-light: oklch(93% 0.05 25);
+  --color-danger-foreground: oklch(97% 0.02 25);
+
+  --color-warning: oklch(72% 0.18 75);
+  --color-warning-light: oklch(95% 0.05 75);
+  --color-warning-foreground: oklch(20% 0.05 75);
+
+  /* ── Neutral surface scale ───────────────────────── */
+  --color-surface-0: oklch(100% 0 0);
+  --color-surface-1: oklch(98% 0.002 250);
+  --color-surface-2: oklch(95% 0.003 250);
+  --color-surface-3: oklch(91% 0.004 250);
+  --color-surface-border: oklch(88% 0.005 250);
+  --color-surface-border-strong: oklch(78% 0.008 250);
+
+  /* ── Text ────────────────────────────────────────── */
+  --color-text-primary: oklch(15% 0.01 250);
+  --color-text-secondary: oklch(40% 0.01 250);
+  --color-text-tertiary: oklch(60% 0.01 250);
+  --color-text-disabled: oklch(75% 0.005 250);
+  --color-text-inverse: oklch(98% 0 0);
+
+  /* ── Typography ──────────────────────────────────── */
+  --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --font-mono: "JetBrains Mono", "Fira Code", ui-monospace, monospace;
+
+  /* Display sizes */
+  --text-display-2xl: 4rem;
+  --text-display-2xl--line-height: 1.05;
+  --text-display-xl: 3rem;
+  --text-display-xl--line-height: 1.1;
+  --text-display: 2.25rem;
+  --text-display--line-height: 1.15;
+  --text-data-lg: 1.875rem;
+  --text-data-lg--line-height: 1.2;
+  --text-data: 1.5rem;
+  --text-data--line-height: 1.2;
+  --text-data-sm: 1.25rem;
+  --text-data-sm--line-height: 1.25;
+
+  /* ── Border radius ───────────────────────────────── */
+  --radius-xs: 0.125rem;
+  --radius-sm: 0.25rem;
+  --radius-md: 0.375rem;
+  --radius-lg: 0.5rem;
+  --radius-xl: 0.75rem;
+  --radius-2xl: 1rem;
+
+  /* ── Shadow ──────────────────────────────────────── */
+  --shadow-card: 0 1px 3px 0 oklch(0% 0 0 / 0.08), 0 1px 2px -1px oklch(0% 0 0 / 0.06);
+  --shadow-dropdown: 0 4px 6px -1px oklch(0% 0 0 / 0.08), 0 2px 4px -2px oklch(0% 0 0 / 0.06);
+  --shadow-modal: 0 20px 25px -5px oklch(0% 0 0 / 0.1), 0 8px 10px -6px oklch(0% 0 0 / 0.08);
+}
