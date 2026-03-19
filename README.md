@@ -1,159 +1,103 @@
-# Turborepo starter
+# bambi-ui
 
-This Turborepo starter is maintained by the Turborepo core team.
+React component library built with Tailwind CSS v4, CVA, and Radix UI.
 
-## Using this example
+## Apps
 
-Run the following command:
+| App | Description | URL |
+|-----|-------------|-----|
+| `apps/docs` | Astro documentation site | [bambi-ui.felekoglu.dev](https://bambi-ui.felekoglu.dev) |
+| `apps/storybook` | Storybook component explorer | [storybook.bambi-ui.felekoglu.dev](https://storybook.bambi-ui.felekoglu.dev) |
+
+## Packages
+
+| Package | Description |
+|---------|-------------|
+| `@bambi-ui/core` | React component library (`packages/ui`) |
+| `@repo/typescript-config` | Shared TypeScript configs |
+| `@repo/eslint-config` | Shared ESLint configs |
+
+## Stack
+
+- **Turborepo** — monorepo build orchestration
+- **pnpm workspaces** — package management
+- **Tailwind CSS v4** — CSS-first design tokens via `@theme {}`
+- **CVA** — component variant management
+- **Radix UI** — accessible component primitives
+- **Storybook 8** — component development environment
+- **Astro 5** — documentation site
+- **TypeScript 5.9** — strict mode throughout
+
+## Getting started
 
 ```sh
-npx create-turbo@latest
+pnpm install
 ```
 
-## What's inside?
+### Development
 
-This Turborepo includes the following packages/apps:
+```sh
+# All apps in parallel
+pnpm dev
 
-### Apps and Packages
-
-- `docs`: a [Next.js](https://nextjs.org/) app
-- `web`: another [Next.js](https://nextjs.org/) app
-- `@repo/ui`: a stub React component library shared by both `web` and `docs` applications
-- `@repo/eslint-config`: `eslint` configurations (includes `eslint-config-next` and `eslint-config-prettier`)
-- `@repo/typescript-config`: `tsconfig.json`s used throughout the monorepo
-
-Each package/app is 100% [TypeScript](https://www.typescriptlang.org/).
-
-### Utilities
-
-This Turborepo has some additional tools already setup for you:
-
-- [TypeScript](https://www.typescriptlang.org/) for static type checking
-- [ESLint](https://eslint.org/) for code linting
-- [Prettier](https://prettier.io) for code formatting
+# Specific app
+pnpm --filter storybook dev   # → localhost:6006
+pnpm --filter docs dev        # → localhost:4321
+```
 
 ### Build
 
-To build all apps and packages, run the following command:
-
-With [global `turbo`](https://turborepo.dev/docs/getting-started/installation#global-installation) installed (recommended):
-
 ```sh
-cd my-turborepo
-turbo build
+# All packages and apps
+pnpm build
+
+# Specific app (with dependencies)
+pnpm build:docs
+pnpm build:storybook
 ```
 
-Without global `turbo`, use your package manager:
+### Other
 
 ```sh
-cd my-turborepo
-npx turbo build
-yarn dlx turbo build
-pnpm exec turbo build
+pnpm lint
+pnpm check-types
+pnpm format
 ```
 
-You can build a specific package by using a [filter](https://turborepo.dev/docs/crafting-your-repository/running-tasks#using-filters):
+## Using the library
 
-With [global `turbo`](https://turborepo.dev/docs/getting-started/installation#global-installation) installed:
+Install the package:
 
 ```sh
-turbo build --filter=docs
+npm install @bambi-ui/core
 ```
 
-Without global `turbo`:
+Import styles once in your app root:
+
+```ts
+import "@bambi-ui/core/styles";
+```
+
+Or, if using Tailwind v4, import the theme tokens into your CSS:
+
+```css
+@import "tailwindcss";
+@import "@bambi-ui/core/tokens";
+```
+
+Use components:
+
+```tsx
+import { Button } from "@bambi-ui/core";
+
+<Button variant="primary" size="md">Confirm Trade</Button>
+<Button variant="danger" loading>Processing...</Button>
+<Button asChild variant="outline"><a href="/portfolio">Portfolio</a></Button>
+```
+
+## Deploy
 
 ```sh
-npx turbo build --filter=docs
-yarn exec turbo build --filter=docs
-pnpm exec turbo build --filter=docs
+pnpm deploy:docs        # → bambiui.felekoglu.dev
+pnpm deploy:storybook   # → storybook.bambiui.felekoglu.dev
 ```
-
-### Develop
-
-To develop all apps and packages, run the following command:
-
-With [global `turbo`](https://turborepo.dev/docs/getting-started/installation#global-installation) installed (recommended):
-
-```sh
-cd my-turborepo
-turbo dev
-```
-
-Without global `turbo`, use your package manager:
-
-```sh
-cd my-turborepo
-npx turbo dev
-yarn exec turbo dev
-pnpm exec turbo dev
-```
-
-You can develop a specific package by using a [filter](https://turborepo.dev/docs/crafting-your-repository/running-tasks#using-filters):
-
-With [global `turbo`](https://turborepo.dev/docs/getting-started/installation#global-installation) installed:
-
-```sh
-turbo dev --filter=web
-```
-
-Without global `turbo`:
-
-```sh
-npx turbo dev --filter=web
-yarn exec turbo dev --filter=web
-pnpm exec turbo dev --filter=web
-```
-
-### Remote Caching
-
-> [!TIP]
-> Vercel Remote Cache is free for all plans. Get started today at [vercel.com](https://vercel.com/signup?utm_source=remote-cache-sdk&utm_campaign=free_remote_cache).
-
-Turborepo can use a technique known as [Remote Caching](https://turborepo.dev/docs/core-concepts/remote-caching) to share cache artifacts across machines, enabling you to share build caches with your team and CI/CD pipelines.
-
-By default, Turborepo will cache locally. To enable Remote Caching you will need an account with Vercel. If you don't have an account you can [create one](https://vercel.com/signup?utm_source=turborepo-examples), then enter the following commands:
-
-With [global `turbo`](https://turborepo.dev/docs/getting-started/installation#global-installation) installed (recommended):
-
-```sh
-cd my-turborepo
-turbo login
-```
-
-Without global `turbo`, use your package manager:
-
-```sh
-cd my-turborepo
-npx turbo login
-yarn exec turbo login
-pnpm exec turbo login
-```
-
-This will authenticate the Turborepo CLI with your [Vercel account](https://vercel.com/docs/concepts/personal-accounts/overview).
-
-Next, you can link your Turborepo to your Remote Cache by running the following command from the root of your Turborepo:
-
-With [global `turbo`](https://turborepo.dev/docs/getting-started/installation#global-installation) installed:
-
-```sh
-turbo link
-```
-
-Without global `turbo`:
-
-```sh
-npx turbo link
-yarn exec turbo link
-pnpm exec turbo link
-```
-
-## Useful Links
-
-Learn more about the power of Turborepo:
-
-- [Tasks](https://turborepo.dev/docs/crafting-your-repository/running-tasks)
-- [Caching](https://turborepo.dev/docs/crafting-your-repository/caching)
-- [Remote Caching](https://turborepo.dev/docs/core-concepts/remote-caching)
-- [Filtering](https://turborepo.dev/docs/crafting-your-repository/running-tasks#using-filters)
-- [Configuration Options](https://turborepo.dev/docs/reference/configuration)
-- [CLI Usage](https://turborepo.dev/docs/reference/command-line-reference)
