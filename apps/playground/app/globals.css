@@ -1,3 +1,3 @@
 @import "tailwindcss";
 @import "@bambi-ui/theme/tokens.css";
-@source "../../../../packages/*/src/**/*.{ts,tsx}";
+@source "../../../packages/*/src/**/*.{ts,tsx}";
