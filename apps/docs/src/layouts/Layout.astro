@@ -14,7 +14,7 @@ const { title, wide = false } = Astro.props;
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
-    <title>{title} — @bambi/ui</title>
+    <title>{title} — @bambi-ui</title>
     {/* Inline script prevents flash of wrong theme */}
     <script is:inline>
       const stored = localStorage.getItem("theme");
@@ -26,7 +26,7 @@ const { title, wide = false } = Astro.props;
   </head>
   <body class="flex min-h-screen bg-background text-foreground">
     <nav class="w-[220px] shrink-0 border-r border-border px-6 py-8">
-      <a class="mb-8 block text-base font-bold text-foreground no-underline" href="/">@bambi/ui</a>
+      <a class="mb-8 block text-base font-bold text-foreground no-underline" href="/">@bambi-ui</a>
 
       <p class="mb-1.5 text-[10px] font-semibold uppercase tracking-widest text-muted-foreground">Components</p>
       <a href="/components/button" class:list={["block py-1.5 text-sm no-underline transition-colors hover:text-foreground", Astro.url.pathname.includes("/components/button") ? "text-foreground" : "text-muted-foreground"]}>Button</a>

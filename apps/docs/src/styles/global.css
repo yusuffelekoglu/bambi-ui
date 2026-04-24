@@ -1,8 +1,12 @@
 @import "tailwindcss";
-@import "@bambi/ui/tokens.css";
+@import "@bambi-ui/theme/tokens.css";
 
-/* Scan @bambi/ui source for Tailwind classes */
-@source "../../../packages/ui/src";
+/* Scan @bambi-ui package sources for Tailwind classes */
+@source "../../../packages/button/src";
+@source "../../../packages/card/src";
+@source "../../../packages/code/src";
+@source "../../../packages/color-picker/src";
+@source "../../../packages/theme/src";
 
 @layer base {
   *,

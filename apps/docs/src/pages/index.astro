@@ -3,7 +3,7 @@ import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout title="Overview">
-  <h1 class="mb-2 text-3xl font-bold">@bambi/ui</h1>
+  <h1 class="mb-2 text-3xl font-bold">@bambi-ui</h1>
   <p class="mb-10 text-muted-foreground">Shared React component library for the Bambi monorepo.</p>
 
   <h2 class="mb-3 text-xs font-semibold uppercase tracking-widest text-muted-foreground">Components</h2>
@@ -51,5 +51,9 @@ import Layout from "../layouts/Layout.astro";
   </table>
 
   <h2 class="mb-3 mt-10 text-xs font-semibold uppercase tracking-widest text-muted-foreground">Installation</h2>
-  <pre class="overflow-x-auto rounded-md border border-border bg-muted px-5 py-4 text-xs text-foreground">{"import { Button, Card, Code, ColorPicker } from \"@bambi/ui\";"}</pre>
+  <pre class="overflow-x-auto rounded-md border border-border bg-muted px-5 py-4 text-xs text-foreground">{`import { Button } from "@bambi-ui/button";
+import { Card } from "@bambi-ui/card";
+import { Code } from "@bambi-ui/code";
+import { ColorPicker } from "@bambi-ui/color-picker";
+import "@bambi-ui/theme/tokens.css";`}</pre>
 </Layout>

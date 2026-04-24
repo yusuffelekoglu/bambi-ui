@@ -1,7 +1,11 @@
 "use client";
 
 import { useCallback, useEffect, useState } from "react";
-import { Button, Card, Code, ColorPicker, cn } from "@bambi/ui";
+import { Button } from "@bambi-ui/button";
+import { Card } from "@bambi-ui/card";
+import { Code } from "@bambi-ui/code";
+import { ColorPicker } from "@bambi-ui/color-picker";
+import { cn } from "@bambi-ui/theme";
 
 // ─── Token definitions ────────────────────────────────────────────────────────
 
@@ -175,7 +179,7 @@ export function ThemeBuilder() {
     const darkLines = Object.entries(dark)
       .map(([k, v]) => `  --bambi-${k}: ${v};`)
       .join("\n");
-    return `/* @bambi/ui custom theme — paste into your global.css */\n:root {\n${lightLines}\n}\n\n.dark {\n${darkLines}\n}`;
+    return `/* @bambi-ui/theme custom theme — paste into your global.css */\n:root {\n${lightLines}\n}\n\n.dark {\n${darkLines}\n}`;
   }, [light, dark, shared]);
 
   const handleCopy = async () => {

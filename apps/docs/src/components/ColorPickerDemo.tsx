@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { ColorPicker } from "@bambi/ui";
+import { ColorPicker } from "@bambi-ui/color-picker";
 
 interface ColorPickerDemoProps {
   initialValue?: string;

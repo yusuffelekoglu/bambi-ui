@@ -11,23 +11,29 @@
     "check-types": "astro check"
   },
   "dependencies": {
+    "@astrojs/check": "^0.9.8",
     "@astrojs/react": "^4.2.1",
-    "@bambi/ui": "workspace:*",
+    "@bambi-ui/button": "workspace:*",
+    "@bambi-ui/card": "workspace:*",
+    "@bambi-ui/code": "workspace:*",
+    "@bambi-ui/color-picker": "workspace:*",
+    "@bambi-ui/theme": "workspace:*",
     "@types/react": "^19.1.2",
     "@types/react-dom": "^19.1.2",
     "astro": "^6.1.9",
     "react": "^19.1.0",
-    "react-dom": "^19.1.0"
+    "react-dom": "^19.1.0",
+    "typescript": "5.9.2"
   },
   "devDependencies": {
     "@eslint/js": "^9.39.1",
+    "@tailwindcss/vite": "^4.2.4",
     "eslint": "^9.39.1",
     "eslint-config-prettier": "^10.1.1",
     "eslint-plugin-only-warn": "^1.1.0",
     "eslint-plugin-react": "^7.37.5",
     "eslint-plugin-react-hooks": "^5.2.0",
     "eslint-plugin-turbo": "^2.7.1",
-    "@tailwindcss/vite": "^4.2.4",
     "tailwindcss": "^4.2.4",
     "typescript-eslint": "^8.50.0"
   }

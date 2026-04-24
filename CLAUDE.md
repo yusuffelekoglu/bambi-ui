@@ -24,8 +24,8 @@ pnpm check-types
 # Format
 pnpm format
 
-# Add a new UI component (uses turbo gen)
-pnpm --filter=@bambi/ui generate:component
+# Add a new UI package (manual)
+# Create packages/<name>/ with package.json, tsconfig.json, src/index.tsx
 ```
 
 There are no tests configured yet.
@@ -35,26 +35,31 @@ There are no tests configured yet.
 This is a **pnpm + Turborepo monorepo** with two layers:
 
 ### Apps (`apps/`)
-- **`docs`** — Astro app on port 3000. Serves as the documentation and live preview site for `@bambi/ui`.
+- **`docs`** — Astro app on port 3000. Serves as the documentation and live preview site for `@bambi-ui/*` packages.
   - Component pages live under `src/pages/components/<name>/index.astro`.
   - The Theme Builder lives at `src/pages/theme/index.astro` and uses `src/components/ThemeBuilder.tsx`.
-  - Docs-only React components (not exported from `@bambi/ui`) live in `src/components/`.
+  - Docs-only React components (not exported from packages) live in `src/components/`.
 
 ### Packages (`packages/`)
-- **`@bambi/ui`** — Shared React component library. Each component lives in its own folder under `src/<name>/index.tsx` with a `README.md`. All components are re-exported from `src/index.ts`, so consumers import from `@bambi/ui` directly. No build step — apps consume the TSX source files at build time.
+- **`@bambi-ui/button`** — Button component package.
+- **`@bambi-ui/card`** — Card component package.
+- **`@bambi-ui/code`** — Inline code component package.
+- **`@bambi-ui/color-picker`** — Color picker component package.
+- **`@bambi-ui/theme`** — Shared theming assets (`tokens.css`) and utilities (`cn`).
 
 ### Key conventions
 - Package manager: **pnpm** (v9). Never use `npm` or `yarn`.
-- Shared package scope is **`@bambi`** (currently `@bambi/ui`).
+- Shared package scope is **`@bambi-ui`**.
 - ESLint and TypeScript configs are managed per app/package (no shared config workspace packages).
-- Import all UI components from `@bambi/ui`, not from deep paths like `@bambi/ui/button`.
-- Adding a new component: create `packages/ui/src/<name>/index.tsx` and `README.md`, then export it from `packages/ui/src/index.ts`. Add a corresponding page at `apps/docs/src/pages/components/<name>/index.astro`.
+- Import each component from its own package (for example: `@bambi-ui/button`).
+- Import design tokens from `@bambi-ui/theme/tokens.css`.
+- Adding a new component: create a dedicated package at `packages/<name>/` with local `package.json`, `tsconfig.json`, and `src/index.tsx`. Add a corresponding page at `apps/docs/src/pages/components/<name>/index.astro`.
 - In `apps/docs`, component pages must use directory-based routing (`<name>/index.astro`) rather than flat files (`<name>.astro`) to avoid TypeScript conflicts with the component import names.
-- All `"use client"` directives belong in `@bambi/ui` components. In Astro, React components need `client:load` (or another client directive) to be interactive.
+- All `"use client"` directives belong in component packages as needed. In Astro, React components need `client:load` (or another client directive) to be interactive.
 - Turbo task graph: `build` and `check-types` depend on `^build`/`^check-types` (packages build before apps). `dev` is persistent with no cache.
 - TypeScript strict mode is on (`strict: true`, `noUncheckedIndexedAccess: true`) across all packages.
 
-## Design tokens (`packages/ui/src/tokens.css`)
+## Design tokens (`packages/theme/src/tokens.css`)
 
 All tokens are defined as `--bambi-*` CSS custom properties and exposed to Tailwind v4 via `@theme inline`. The full token set:
 
@@ -69,7 +74,7 @@ All tokens are defined as `--bambi-*` CSS custom properties and exposed to Tailw
 | Typography   | `font-sans`, `font-mono`                                                                |
 | Shadows      | `shadow-sm`, `shadow-md`, `shadow-lg`                                                   |
 
-**Override pattern** — paste into your `global.css` after `@import "@bambi/ui/tokens.css"`:
+**Override pattern** — paste into your `global.css` after `@import "@bambi-ui/theme/tokens.css"`:
 
 ```css
 :root {
