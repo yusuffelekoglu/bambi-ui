@@ -1,6 +1,6 @@
 {
   "name": "@bambi-ui/theme",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "private": false,
   "publishConfig": {
     "access": "public"
@@ -16,7 +16,7 @@
     "./tokens.css": "./src/tokens.css"
   },
   "scripts": {
-    "build": "tsc -p tsconfig.json",
+    "build": "tsup src/index.ts --format esm --dts --clean",
     "check-types": "tsc --noEmit"
   },
   "dependencies": {
@@ -24,6 +24,7 @@
     "tailwind-merge": "^3.5.0"
   },
   "devDependencies": {
+    "tsup": "^8.5.1",
     "typescript": "5.9.2"
   },
   "files": [
