@@ -1,6 +1,6 @@
 {
   "name": "@bambi-ui/theme",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "private": false,
   "publishConfig": {
     "access": "public"
@@ -19,10 +19,7 @@
     "build": "tsup src/index.ts --format esm --dts --clean",
     "check-types": "tsc --noEmit"
   },
-  "dependencies": {
-    "clsx": "^2.1.1",
-    "tailwind-merge": "^3.5.0"
-  },
+  "dependencies": {},
   "devDependencies": {
     "tsup": "^8.5.1",
     "typescript": "5.9.2"
