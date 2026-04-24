@@ -42,12 +42,11 @@ This is a **pnpm + Turborepo monorepo** with two layers:
 
 ### Packages (`packages/`)
 - **`@bambi/ui`** — Shared React component library. Each component lives in its own folder under `src/<name>/index.tsx` with a `README.md`. All components are re-exported from `src/index.ts`, so consumers import from `@bambi/ui` directly. No build step — apps consume the TSX source files at build time.
-- **`@bambi/eslint-config`** — Three ESLint presets: `base`, `next-js`, `react-internal`.
-- **`@bambi/typescript-config`** — Three tsconfig presets: `base.json`, `nextjs.json`, `react-library.json`.
 
 ### Key conventions
 - Package manager: **pnpm** (v9). Never use `npm` or `yarn`.
-- All packages use the `@bambi` scope.
+- Shared package scope is **`@bambi`** (currently `@bambi/ui`).
+- ESLint and TypeScript configs are managed per app/package (no shared config workspace packages).
 - Import all UI components from `@bambi/ui`, not from deep paths like `@bambi/ui/button`.
 - Adding a new component: create `packages/ui/src/<name>/index.tsx` and `README.md`, then export it from `packages/ui/src/index.ts`. Add a corresponding page at `apps/docs/src/pages/components/<name>/index.astro`.
 - In `apps/docs`, component pages must use directory-based routing (`<name>/index.astro`) rather than flat files (`<name>.astro`) to avoid TypeScript conflicts with the component import names.

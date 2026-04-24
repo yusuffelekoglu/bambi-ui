@@ -211,7 +211,7 @@ export function ThemeBuilder() {
               {group.label}
             </p>
             <div className="space-y-1">
-              {group.tokens.map(({ key, label }) => (
+              {group.tokens.map(({ key }) => (
                 <div
                   key={key}
                   className="grid grid-cols-[1fr_104px_104px] items-center gap-x-6 rounded px-2 py-1 hover:bg-muted/40"
