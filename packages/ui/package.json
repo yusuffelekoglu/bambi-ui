@@ -4,6 +4,7 @@
   "private": true,
   "exports": {
     ".": "./src/index.ts",
+    "./tokens.css": "./src/tokens.css",
     "./*": "./src/*/index.tsx"
   },
   "scripts": {
@@ -18,10 +19,13 @@
     "@types/react": "19.2.2",
     "@types/react-dom": "19.2.2",
     "eslint": "^9.39.1",
+    "tailwindcss": "^4.2.4",
     "typescript": "5.9.2"
   },
   "dependencies": {
+    "clsx": "^2.1.1",
     "react": "^19.2.0",
-    "react-dom": "^19.2.0"
+    "react-dom": "^19.2.0",
+    "tailwind-merge": "^3.5.0"
   }
 }

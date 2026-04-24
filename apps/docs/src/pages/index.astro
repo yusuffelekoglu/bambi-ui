@@ -3,38 +3,53 @@ import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout title="Overview">
-  <h1>@bambi/ui</h1>
-  <p class="subtitle">Shared React component library for the Bambi monorepo.</p>
+  <h1 class="mb-2 text-3xl font-bold">@bambi/ui</h1>
+  <p class="mb-10 text-muted-foreground">Shared React component library for the Bambi monorepo.</p>
 
-  <h2>Components</h2>
-  <table>
+  <h2 class="mb-3 text-xs font-semibold uppercase tracking-widest text-muted-foreground">Components</h2>
+  <table class="w-full border-collapse text-sm">
     <thead>
       <tr>
-        <th>Component</th>
-        <th>Description</th>
+        <th class="border-b border-border px-4 py-2 text-left font-medium text-muted-foreground">Component</th>
+        <th class="border-b border-border px-4 py-2 text-left font-medium text-muted-foreground">Description</th>
       </tr>
     </thead>
     <tbody>
       <tr>
-        <td><a href="/components/button"><code>Button</code></a></td>
-        <td>Client-side button that triggers an alert with the app name.</td>
+        <td class="border-b border-border/50 px-4 py-2"><a href="/components/button" class="text-primary hover:underline"><code>Button</code></a></td>
+        <td class="border-b border-border/50 px-4 py-2 text-muted-foreground">Client-side button that triggers an alert with the app name.</td>
       </tr>
       <tr>
-        <td><a href="/components/card"><code>Card</code></a></td>
-        <td>Outbound link card with automatic UTM parameters.</td>
+        <td class="border-b border-border/50 px-4 py-2"><a href="/components/card" class="text-primary hover:underline"><code>Card</code></a></td>
+        <td class="border-b border-border/50 px-4 py-2 text-muted-foreground">Outbound link card with automatic UTM parameters.</td>
       </tr>
       <tr>
-        <td><a href="/components/code"><code>Code</code></a></td>
-        <td>Inline code block wrapper around the native <code>&lt;code&gt;</code> element.</td>
+        <td class="border-b border-border/50 px-4 py-2"><a href="/components/code" class="text-primary hover:underline"><code>Code</code></a></td>
+        <td class="border-b border-border/50 px-4 py-2 text-muted-foreground">Inline code block wrapper around the native <code>&lt;code&gt;</code> element.</td>
+      </tr>
+      <tr>
+        <td class="px-4 py-2"><a href="/components/color-picker" class="text-primary hover:underline"><code>ColorPicker</code></a></td>
+        <td class="px-4 py-2 text-muted-foreground">Controlled color-picker with native dialog and hex text input.</td>
       </tr>
     </tbody>
   </table>
 
-  <h2>Installation</h2>
-  <pre>import {"{ Button, Card, Code }"} from "@bambi/ui";</pre>
-</Layout>
+  <h2 class="mb-3 mt-10 text-xs font-semibold uppercase tracking-widest text-muted-foreground">Theming</h2>
+  <table class="w-full border-collapse text-sm">
+    <thead>
+      <tr>
+        <th class="border-b border-border px-4 py-2 text-left font-medium text-muted-foreground">Tool</th>
+        <th class="border-b border-border px-4 py-2 text-left font-medium text-muted-foreground">Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="px-4 py-2"><a href="/theme" class="text-primary hover:underline">Theme Builder</a></td>
+        <td class="px-4 py-2 text-muted-foreground">Interactively customize all design tokens and export a ready-to-paste <code>global.css</code> snippet.</td>
+      </tr>
+    </tbody>
+  </table>
 
-<style>
-  a { color: #888; }
-  a:hover { color: #ededed; }
-</style>
+  <h2 class="mb-3 mt-10 text-xs font-semibold uppercase tracking-widest text-muted-foreground">Installation</h2>
+  <pre class="overflow-x-auto rounded-md border border-border bg-muted px-5 py-4 text-xs text-foreground">{"import { Button, Card, Code, ColorPicker } from \"@bambi/ui\";"}</pre>
+</Layout>

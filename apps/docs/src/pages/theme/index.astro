@@ -1,0 +1,14 @@
+---
+import { ThemeBuilder } from "../../components/ThemeBuilder";
+import Layout from "../../layouts/Layout.astro";
+---
+
+<Layout title="Theme Builder" wide>
+  <h1 class="mb-2 text-3xl font-bold">Theme Builder</h1>
+  <p class="mb-10 text-muted-foreground">
+    Customize design tokens and export a <code class="rounded bg-muted px-1 text-sm">global.css</code>
+    snippet to drop into your project. Changes are previewed live on this page.
+  </p>
+
+  <ThemeBuilder client:load />
+</Layout>

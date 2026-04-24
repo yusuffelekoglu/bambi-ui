@@ -1,39 +1,44 @@
 ---
-import { Card } from "@bambi/ui";
+import { Card as UICard } from "@bambi/ui";
 import Layout from "../../../layouts/Layout.astro";
 ---
 
 <Layout title="Card">
-  <h1>Card</h1>
-  <p class="subtitle">Outbound link card with automatic UTM parameters appended to the href.</p>
+  <h1 class="mb-2 text-3xl font-bold">Card</h1>
+  <p class="mb-10 text-muted-foreground">Outbound link card with automatic UTM parameters appended to the href.</p>
 
-  <h2>Preview</h2>
-  <div class="preview">
-    <Card title="Documentation" href="https://astro.build">
+  <h2 class="mb-3 text-xs font-semibold uppercase tracking-widest text-muted-foreground">Preview</h2>
+  <div class="grid grid-cols-2 gap-4 rounded-lg border border-border bg-secondary p-8">
+    <UICard title="Documentation" href="https://astro.build">
       Learn how to build with Astro.
-    </Card>
-    <Card title="GitHub" href="https://github.com">
+    </UICard>
+    <UICard title="GitHub" href="https://github.com">
       Browse the source code.
-    </Card>
+    </UICard>
   </div>
 
-  <h2>Usage</h2>
-  <pre>{`import { Card } from "@bambi/ui";
+  <h2 class="mb-3 mt-10 text-xs font-semibold uppercase tracking-widest text-muted-foreground">Usage</h2>
+  <pre class="overflow-x-auto rounded-md border border-border bg-muted px-5 py-4 text-xs text-foreground">{`import { Card } from "@bambi/ui";
 
 <Card title="Docs" href="https://example.com">
   Description text here.
 </Card>`}</pre>
 
-  <h2>Props</h2>
-  <table>
+  <h2 class="mb-3 mt-10 text-xs font-semibold uppercase tracking-widest text-muted-foreground">Props</h2>
+  <table class="w-full border-collapse text-sm">
     <thead>
-      <tr><th>Prop</th><th>Type</th><th>Required</th><th>Description</th></tr>
+      <tr>
+        <th class="border-b border-border px-4 py-2 text-left font-medium text-muted-foreground">Prop</th>
+        <th class="border-b border-border px-4 py-2 text-left font-medium text-muted-foreground">Type</th>
+        <th class="border-b border-border px-4 py-2 text-left font-medium text-muted-foreground">Required</th>
+        <th class="border-b border-border px-4 py-2 text-left font-medium text-muted-foreground">Description</th>
+      </tr>
     </thead>
     <tbody>
-      <tr><td><code>title</code></td><td><code>string</code></td><td>✓</td><td>Card heading.</td></tr>
-      <tr><td><code>href</code></td><td><code>string</code></td><td>✓</td><td>Destination URL. UTM parameters are appended automatically.</td></tr>
-      <tr><td><code>children</code></td><td><code>ReactNode</code></td><td>✓</td><td>Card description.</td></tr>
-      <tr><td><code>className</code></td><td><code>string</code></td><td>—</td><td>CSS class.</td></tr>
+      <tr><td class="border-b border-border/50 px-4 py-2"><code class="rounded bg-muted px-1 text-xs">title</code></td><td class="border-b border-border/50 px-4 py-2 text-muted-foreground"><code class="rounded bg-muted px-1 text-xs">string</code></td><td class="border-b border-border/50 px-4 py-2">✓</td><td class="border-b border-border/50 px-4 py-2 text-muted-foreground">Card heading.</td></tr>
+      <tr><td class="border-b border-border/50 px-4 py-2"><code class="rounded bg-muted px-1 text-xs">href</code></td><td class="border-b border-border/50 px-4 py-2 text-muted-foreground"><code class="rounded bg-muted px-1 text-xs">string</code></td><td class="border-b border-border/50 px-4 py-2">✓</td><td class="border-b border-border/50 px-4 py-2 text-muted-foreground">Destination URL. UTM parameters are appended automatically.</td></tr>
+      <tr><td class="border-b border-border/50 px-4 py-2"><code class="rounded bg-muted px-1 text-xs">children</code></td><td class="border-b border-border/50 px-4 py-2 text-muted-foreground"><code class="rounded bg-muted px-1 text-xs">ReactNode</code></td><td class="border-b border-border/50 px-4 py-2">✓</td><td class="border-b border-border/50 px-4 py-2 text-muted-foreground">Card description.</td></tr>
+      <tr><td class="px-4 py-2"><code class="rounded bg-muted px-1 text-xs">className</code></td><td class="px-4 py-2 text-muted-foreground"><code class="rounded bg-muted px-1 text-xs">string</code></td><td class="px-4 py-2">—</td><td class="px-4 py-2 text-muted-foreground">Additional Tailwind classes or custom CSS class.</td></tr>
     </tbody>
   </table>
 </Layout>

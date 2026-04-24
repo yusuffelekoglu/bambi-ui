@@ -35,7 +35,10 @@ There are no tests configured yet.
 This is a **pnpm + Turborepo monorepo** with two layers:
 
 ### Apps (`apps/`)
-- **`docs`** — Astro app on port 3000. Serves as the documentation and live preview site for `@bambi/ui`. Each component has its own page under `src/pages/components/<name>/index.astro`.
+- **`docs`** — Astro app on port 3000. Serves as the documentation and live preview site for `@bambi/ui`.
+  - Component pages live under `src/pages/components/<name>/index.astro`.
+  - The Theme Builder lives at `src/pages/theme/index.astro` and uses `src/components/ThemeBuilder.tsx`.
+  - Docs-only React components (not exported from `@bambi/ui`) live in `src/components/`.
 
 ### Packages (`packages/`)
 - **`@bambi/ui`** — Shared React component library. Each component lives in its own folder under `src/<name>/index.tsx` with a `README.md`. All components are re-exported from `src/index.ts`, so consumers import from `@bambi/ui` directly. No build step — apps consume the TSX source files at build time.
@@ -51,3 +54,44 @@ This is a **pnpm + Turborepo monorepo** with two layers:
 - All `"use client"` directives belong in `@bambi/ui` components. In Astro, React components need `client:load` (or another client directive) to be interactive.
 - Turbo task graph: `build` and `check-types` depend on `^build`/`^check-types` (packages build before apps). `dev` is persistent with no cache.
 - TypeScript strict mode is on (`strict: true`, `noUncheckedIndexedAccess: true`) across all packages.
+
+## Design tokens (`packages/ui/src/tokens.css`)
+
+All tokens are defined as `--bambi-*` CSS custom properties and exposed to Tailwind v4 via `@theme inline`. The full token set:
+
+| Group        | Tokens                                                                                  |
+|--------------|-----------------------------------------------------------------------------------------|
+| Base         | `background`, `foreground`                                                              |
+| Surface      | `card`, `card-foreground`, `popover`, `popover-foreground`                              |
+| Brand        | `primary`, `primary-foreground`, `secondary`, `secondary-foreground`, `accent`, `accent-foreground` |
+| State        | `muted`, `muted-foreground`, `destructive`, `destructive-foreground`                    |
+| Utility      | `border`, `input`, `ring`                                                               |
+| Border Radius| `radius-sm`, `radius-md`, `radius-lg`, `radius-xl`, `radius-full`                      |
+| Typography   | `font-sans`, `font-mono`                                                                |
+| Shadows      | `shadow-sm`, `shadow-md`, `shadow-lg`                                                   |
+
+**Override pattern** — paste into your `global.css` after `@import "@bambi/ui/tokens.css"`:
+
+```css
+:root {
+  --bambi-primary: oklch(60% 0.25 30);
+}
+.dark {
+  --bambi-primary: oklch(70% 0.25 30);
+}
+```
+
+Use the **Theme Builder** at `/theme` to generate this snippet interactively.
+
+## Theme Builder (`apps/docs/src/pages/theme/`)
+
+- Interactive React component (`ThemeBuilder.tsx`) that renders with `client:load`.
+- Edits light tokens via `document.documentElement.style.setProperty("--bambi-*", ...)`.
+- Edits dark tokens via an injected `<style id="bambi-dark-preview">` tag.
+- Reverts all overrides on unmount (navigation away).
+- Exports a ready-to-paste CSS snippet with `:root` and `.dark` blocks.
+
+## Layout
+
+`apps/docs/src/layouts/Layout.astro` accepts a `wide` boolean prop (default `false`).
+Wide pages remove the `max-w-3xl` constraint on `<main>` — use for pages that need a full-width grid (e.g. Theme Builder).

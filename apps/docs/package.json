@@ -19,6 +19,8 @@
     "react-dom": "^19.1.0"
   },
   "devDependencies": {
-    "@bambi/typescript-config": "workspace:*"
+    "@bambi/typescript-config": "workspace:*",
+    "@tailwindcss/vite": "^4.2.4",
+    "tailwindcss": "^4.2.4"
   }
 }

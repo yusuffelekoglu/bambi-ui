@@ -1,8 +1,11 @@
 ---
+import "../styles/global.css";
+
 interface Props {
   title: string;
+  wide?: boolean;
 }
-const { title } = Astro.props;
+const { title, wide = false } = Astro.props;
 ---
 
 <html lang="en">
@@ -12,34 +15,59 @@ const { title } = Astro.props;
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
     <title>{title} — @bambi/ui</title>
-    <style>
-      *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-      body { font-family: system-ui, sans-serif; background: #0f0f0f; color: #ededed; min-height: 100vh; display: flex; }
-      nav { width: 220px; padding: 2rem 1.5rem; border-right: 1px solid #222; flex-shrink: 0; }
-      nav a { display: block; font-size: 0.875rem; color: #888; text-decoration: none; padding: 0.375rem 0; }
-      nav a:hover, nav a.active { color: #ededed; }
-      nav .logo { font-weight: 700; font-size: 1rem; color: #ededed; margin-bottom: 2rem; display: block; text-decoration: none; }
-      main { flex: 1; padding: 3rem 4rem; max-width: 900px; }
-      h1 { font-size: 2rem; font-weight: 700; margin-bottom: 0.5rem; }
-      .subtitle { color: #888; margin-bottom: 3rem; }
-      h2 { font-size: 1rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: #888; margin: 2.5rem 0 1rem; }
-      .preview { background: #1a1a1a; border: 1px solid #222; border-radius: 8px; padding: 2rem; display: flex; gap: 1rem; flex-wrap: wrap; align-items: center; }
-      pre { background: #111; border: 1px solid #222; border-radius: 6px; padding: 1.25rem; font-size: 0.8rem; overflow-x: auto; margin-top: 1rem; color: #a8b1c0; }
-      table { width: 100%; border-collapse: collapse; font-size: 0.875rem; }
-      th { text-align: left; padding: 0.5rem 1rem; border-bottom: 1px solid #222; color: #888; font-weight: 500; }
-      td { padding: 0.5rem 1rem; border-bottom: 1px solid #161616; }
-      td code { background: #1a1a1a; padding: 0.15rem 0.4rem; border-radius: 4px; font-size: 0.8rem; }
-    </style>
+    {/* Inline script prevents flash of wrong theme */}
+    <script is:inline>
+      const stored = localStorage.getItem("theme");
+      const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+      if (stored === "dark" || (!stored && prefersDark)) {
+        document.documentElement.classList.add("dark");
+      }
+    </script>
   </head>
-  <body>
-    <nav>
-      <a class="logo" href="/">@bambi/ui</a>
-      <a href="/components/button" class={Astro.url.pathname.includes("button") ? "active" : ""}>Button</a>
-      <a href="/components/card" class={Astro.url.pathname.includes("card") ? "active" : ""}>Card</a>
-      <a href="/components/code" class={Astro.url.pathname.includes("code") ? "active" : ""}>Code</a>
+  <body class="flex min-h-screen bg-background text-foreground">
+    <nav class="w-[220px] shrink-0 border-r border-border px-6 py-8">
+      <a class="mb-8 block text-base font-bold text-foreground no-underline" href="/">@bambi/ui</a>
+
+      <p class="mb-1.5 text-[10px] font-semibold uppercase tracking-widest text-muted-foreground">Components</p>
+      <a href="/components/button" class:list={["block py-1.5 text-sm no-underline transition-colors hover:text-foreground", Astro.url.pathname.includes("/components/button") ? "text-foreground" : "text-muted-foreground"]}>Button</a>
+      <a href="/components/card" class:list={["block py-1.5 text-sm no-underline transition-colors hover:text-foreground", Astro.url.pathname.includes("/components/card") ? "text-foreground" : "text-muted-foreground"]}>Card</a>
+      <a href="/components/code" class:list={["block py-1.5 text-sm no-underline transition-colors hover:text-foreground", Astro.url.pathname.includes("/components/code") ? "text-foreground" : "text-muted-foreground"]}>Code</a>
+      <a href="/components/color-picker" class:list={["block py-1.5 text-sm no-underline transition-colors hover:text-foreground", Astro.url.pathname.includes("/components/color-picker") ? "text-foreground" : "text-muted-foreground"]}>ColorPicker</a>
+
+      <p class="mb-1.5 mt-6 text-[10px] font-semibold uppercase tracking-widest text-muted-foreground">Theming</p>
+      <a href="/theme" class:list={["block py-1.5 text-sm no-underline transition-colors hover:text-foreground", Astro.url.pathname === "/theme" ? "text-foreground" : "text-muted-foreground"]}>Theme Builder</a>
+
+      <button
+        id="theme-toggle"
+        class="mt-8 flex items-center gap-2 text-xs text-muted-foreground transition-colors hover:text-foreground"
+        aria-label="Toggle theme"
+      >
+        <span id="theme-icon">☀️</span>
+        <span id="theme-label">Light</span>
+      </button>
     </nav>
-    <main>
+    <main class:list={["flex-1 px-16 py-12", wide ? "" : "max-w-3xl"]}>
       <slot />
     </main>
+
+    <script is:inline>
+      const toggle = document.getElementById("theme-toggle");
+      const icon = document.getElementById("theme-icon");
+      const label = document.getElementById("theme-label");
+
+      function updateToggle() {
+        const isDark = document.documentElement.classList.contains("dark");
+        icon.textContent = isDark ? "🌙" : "☀️";
+        label.textContent = isDark ? "Dark" : "Light";
+      }
+
+      updateToggle();
+
+      toggle.addEventListener("click", () => {
+        const isDark = document.documentElement.classList.toggle("dark");
+        localStorage.setItem("theme", isDark ? "dark" : "light");
+        updateToggle();
+      });
+    </script>
   </body>
 </html>
