@@ -1,0 +1,35 @@
+.bambi-card {
+	display: block;
+	border: 1px solid var(--bambi-border);
+	border-radius: var(--bambi-radius-lg);
+	background-color: var(--bambi-secondary);
+	padding: 1.5rem;
+	color: var(--bambi-secondary-foreground);
+	text-decoration: none;
+	transition: background-color 0.15s ease;
+}
+
+.bambi-card:hover {
+	background-color: var(--bambi-muted);
+}
+
+.bambi-card-title {
+	margin: 0 0 0.5rem;
+	font-size: 1rem;
+	font-weight: 600;
+}
+
+.bambi-card-arrow {
+	display: inline-block;
+	transition: transform 0.15s ease;
+}
+
+.bambi-card:hover .bambi-card-arrow {
+	transform: translateX(2px);
+}
+
+.bambi-card-description {
+	margin: 0;
+	font-size: 0.875rem;
+	color: var(--bambi-muted-foreground);
+}

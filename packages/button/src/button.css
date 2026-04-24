@@ -1,0 +1,19 @@
+.bambi-button {
+  display: inline-flex;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: var(--bambi-radius-md);
+  background-color: var(--bambi-primary);
+  padding: 0.5rem 1rem;
+  font-family: inherit;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--bambi-primary-foreground);
+  transition: opacity 0.15s ease;
+}
+
+.bambi-button:hover {
+  opacity: 0.9;
+}

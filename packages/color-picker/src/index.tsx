@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, type JSX } from "react";
 import { cn } from "@bambi-ui/theme";
+import "./color-picker.css";
 
 export interface ColorPickerProps {
 	value: string;
@@ -20,17 +21,17 @@ export function ColorPicker({ value, onChange, className }: ColorPickerProps): J
 	}, [value]);
 
 	return (
-		<div className={cn("flex items-center gap-1.5", className)}>
-			<div className="relative h-6 w-6 shrink-0 cursor-pointer">
+		<div className={cn("bambi-color-picker", className)}>
+			<div className="bambi-color-picker-swatch-wrap">
 				<span
-					className="block h-full w-full rounded-sm border border-border/60 shadow-sm"
+					className="bambi-color-picker-swatch"
 					style={{ backgroundColor: value }}
 				/>
 				<input
 					type="color"
 					value={value}
 					onChange={(e) => onChange(e.target.value)}
-					className="absolute inset-0 h-full w-full cursor-pointer opacity-0"
+					className="bambi-color-picker-native"
 					aria-label="Pick color"
 				/>
 			</div>
@@ -51,7 +52,7 @@ export function ColorPicker({ value, onChange, className }: ColorPickerProps): J
 						onChange(e.target.value);
 					}
 				}}
-				className="w-[72px] rounded border border-border bg-muted px-1.5 py-0.5 font-mono text-xs text-foreground focus:outline-none focus:ring-1 focus:ring-ring"
+				className="bambi-color-picker-input"
 				maxLength={7}
 				spellCheck={false}
 				aria-label="Hex color value"

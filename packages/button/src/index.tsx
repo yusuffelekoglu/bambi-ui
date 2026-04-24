@@ -2,6 +2,7 @@
 
 import { type ReactNode } from "react";
 import { cn } from "@bambi-ui/theme";
+import "./button.css";
 
 export interface ButtonProps {
 	children: ReactNode;
@@ -12,10 +13,7 @@ export interface ButtonProps {
 export const Button = ({ children, className, appName }: ButtonProps) => {
 	return (
 		<button
-			className={cn(
-				"inline-flex cursor-pointer items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-opacity hover:opacity-90",
-				className,
-			)}
+			className={cn("bambi-button", className)}
 			onClick={() => alert(`Hello from your ${appName} app!`)}
 		>
 			{children}

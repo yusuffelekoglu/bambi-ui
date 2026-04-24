@@ -1,5 +1,6 @@
 import { type JSX } from "react";
 import { cn } from "@bambi-ui/theme";
+import "./card.css";
 
 export interface CardProps {
 	className?: string;
@@ -12,17 +13,17 @@ export function Card({ className, title, children, href }: CardProps): JSX.Eleme
 	return (
 		<a
 			className={cn(
-				"block rounded-lg border border-border bg-secondary p-6 text-secondary-foreground no-underline transition-colors hover:bg-muted",
+				"bambi-card",
 				className,
 			)}
 			href={`${href}?utm_source=create-turbo&utm_medium=basic&utm_campaign=create-turbo`}
 			rel="noopener noreferrer"
 			target="_blank"
 		>
-			<h2 className="mb-2 text-base font-semibold">
-				{title} <span>→</span>
+			<h2 className="bambi-card-title">
+				{title} <span className="bambi-card-arrow">→</span>
 			</h2>
-			<p className="text-sm text-muted-foreground">{children}</p>
+			<p className="bambi-card-description">{children}</p>
 		</a>
 	);
 }

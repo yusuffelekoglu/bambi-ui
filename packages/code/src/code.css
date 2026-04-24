@@ -1,0 +1,8 @@
+.bambi-code {
+	border-radius: var(--bambi-radius-sm);
+	background-color: var(--bambi-muted);
+	padding: 0.125rem 0.375rem;
+	font-family: var(--bambi-font-mono);
+	font-size: 0.875rem;
+	color: var(--bambi-foreground);
+}

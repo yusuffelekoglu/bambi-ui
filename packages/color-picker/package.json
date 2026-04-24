@@ -1,6 +1,6 @@
 {
   "name": "@bambi-ui/color-picker",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "private": false,
   "publishConfig": {
     "access": "public"
@@ -15,7 +15,7 @@
     }
   },
   "scripts": {
-    "build": "tsup src/index.tsx --format esm --dts --clean",
+    "build": "tsup src/index.tsx --format esm --dts --clean --inject-style",
     "check-types": "tsc --noEmit"
   },
   "dependencies": {
