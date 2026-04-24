@@ -1,0 +1,31 @@
+---
+import { Code } from "@bambi/ui";
+import Layout from "../../../layouts/Layout.astro";
+---
+
+<Layout title="Code">
+  <h1>Code</h1>
+  <p class="subtitle">Thin wrapper that renders an inline <code>&lt;code&gt;</code> element.</p>
+
+  <h2>Preview</h2>
+  <div class="preview">
+    <p>Run <Code>pnpm install</Code> to get started.</p>
+    <p>Import from <Code>@bambi/ui</Code> in your components.</p>
+  </div>
+
+  <h2>Usage</h2>
+  <pre>{`import { Code } from "@bambi/ui";
+
+<p>Run <Code>pnpm install</Code> to get started.</p>`}</pre>
+
+  <h2>Props</h2>
+  <table>
+    <thead>
+      <tr><th>Prop</th><th>Type</th><th>Required</th><th>Description</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><code>children</code></td><td><code>ReactNode</code></td><td>✓</td><td>Code content.</td></tr>
+      <tr><td><code>className</code></td><td><code>string</code></td><td>—</td><td>CSS class.</td></tr>
+    </tbody>
+  </table>
+</Layout>

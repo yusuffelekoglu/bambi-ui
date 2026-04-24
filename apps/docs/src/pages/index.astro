@@ -1,0 +1,40 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title="Overview">
+  <h1>@bambi/ui</h1>
+  <p class="subtitle">Shared React component library for the Bambi monorepo.</p>
+
+  <h2>Components</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Component</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a href="/components/button"><code>Button</code></a></td>
+        <td>Client-side button that triggers an alert with the app name.</td>
+      </tr>
+      <tr>
+        <td><a href="/components/card"><code>Card</code></a></td>
+        <td>Outbound link card with automatic UTM parameters.</td>
+      </tr>
+      <tr>
+        <td><a href="/components/code"><code>Code</code></a></td>
+        <td>Inline code block wrapper around the native <code>&lt;code&gt;</code> element.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2>Installation</h2>
+  <pre>import {"{ Button, Card, Code }"} from "@bambi/ui";</pre>
+</Layout>
+
+<style>
+  a { color: #888; }
+  a:hover { color: #ededed; }
+</style>

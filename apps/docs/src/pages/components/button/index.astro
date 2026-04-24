@@ -1,0 +1,31 @@
+---
+import { Button } from "@bambi/ui";
+import Layout from "../../../layouts/Layout.astro";
+---
+
+<Layout title="Button">
+  <h1>Button</h1>
+  <p class="subtitle">Client-side button that triggers an alert with the app name.</p>
+
+  <h2>Preview</h2>
+  <div class="preview">
+    <Button appName="docs" client:load>Click me</Button>
+  </div>
+
+  <h2>Usage</h2>
+  <pre>{`import { Button } from "@bambi/ui";
+
+<Button appName="web">Click me</Button>`}</pre>
+
+  <h2>Props</h2>
+  <table>
+    <thead>
+      <tr><th>Prop</th><th>Type</th><th>Required</th><th>Description</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><code>appName</code></td><td><code>string</code></td><td>✓</td><td>App name shown in the alert message.</td></tr>
+      <tr><td><code>children</code></td><td><code>ReactNode</code></td><td>✓</td><td>Button content.</td></tr>
+      <tr><td><code>className</code></td><td><code>string</code></td><td>—</td><td>CSS class.</td></tr>
+    </tbody>
+  </table>
+</Layout>
