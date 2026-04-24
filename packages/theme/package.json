@@ -13,7 +13,8 @@
       "import": "./dist/index.js",
       "default": "./dist/index.js"
     },
-    "./tokens.css": "./src/tokens.css"
+    "./tokens.css": "./src/tokens.css",
+    "./index.css": "./src/index.css"
   },
   "scripts": {
     "build": "tsup src/index.ts --format esm --dts --clean",
@@ -29,6 +30,7 @@
   },
   "files": [
     "dist",
-    "src/tokens.css"
+    "src/tokens.css",
+    "src/index.css"
   ]
 }
