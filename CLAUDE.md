@@ -141,7 +141,7 @@ All tokens are defined as `--bambi-*` CSS custom properties and exposed to Tailw
 | Base          | `background`, `foreground`                                                                          |
 | Surface       | `card`, `card-foreground`, `popover`, `popover-foreground`                                          |
 | Brand         | `primary`, `primary-foreground`, `secondary`, `secondary-foreground`, `accent`, `accent-foreground` |
-| State         | `muted`, `muted-foreground`, `destructive`, `destructive-foreground`                                |
+| State         | `muted`, `muted-foreground`, `destructive`, `destructive-foreground`, `success`, `success-foreground`, `warning`, `warning-foreground` |
 | Utility       | `border`, `input`, `ring`                                                                           |
 | Border Radius | `radius-sm`, `radius-md`, `radius-lg`, `radius-xl`, `radius-full`                                   |
 | Typography    | `font-sans`, `font-mono`                                                                            |

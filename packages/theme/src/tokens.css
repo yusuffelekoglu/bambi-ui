@@ -36,6 +36,10 @@
   --color-muted-foreground: var(--bambi-muted-foreground);
   --color-destructive: var(--bambi-destructive);
   --color-destructive-foreground: var(--bambi-destructive-foreground);
+  --color-success: var(--bambi-success);
+  --color-success-foreground: var(--bambi-success-foreground);
+  --color-warning: var(--bambi-warning);
+  --color-warning-foreground: var(--bambi-warning-foreground);
 
   /* Utility */
   --color-border: var(--bambi-border);
@@ -88,6 +92,10 @@
   --bambi-muted-foreground: oklch(42% 0 0);
   --bambi-destructive: oklch(55% 0.22 25);
   --bambi-destructive-foreground: oklch(98% 0 0);
+  --bambi-success: oklch(55% 0.17 145);
+  --bambi-success-foreground: oklch(98% 0 0);
+  --bambi-warning: oklch(75% 0.17 70);
+  --bambi-warning-foreground: oklch(15% 0 0);
   --bambi-border: oklch(70% 0 0);
   --bambi-input: oklch(70% 0 0);
   --bambi-ring: oklch(55% 0.22 250);
@@ -106,9 +114,22 @@
   --bambi-font-weight-medium: 500;
   --bambi-font-weight-semibold: 600;
   --bambi-font-weight-bold: 700;
+  --bambi-button-spinner-border-width: 2px;
+  --bambi-button-spinner-duration: 0.6s;
+  --bambi-button-gap: 0.375rem;
+  --bambi-button-border-width: 1px;
+  --bambi-button-line-height: 1;
+  --bambi-button-transition: opacity 0.15s ease, background-color 0.15s ease;
+  --bambi-button-hover-opacity: 0.9;
+  --bambi-button-disabled-opacity: 0.5;
+  --bambi-button-focus-ring-width: 2px;
+  --bambi-button-focus-ring-offset: 2px;
+  --bambi-button-link-underline-offset: 4px;
+  --bambi-button-outline-hover-bg: color-mix(in oklch, var(--bambi-primary) 10%, transparent);
   --bambi-button-padding-sm: 0.375rem 0.75rem;
   --bambi-button-padding-md: 0.5rem 1rem;
   --bambi-button-padding-lg: 0.625rem 1.25rem;
+  --bambi-button-padding-icon: 0.5rem;
   --bambi-shadow-sm: 0 1px 2px 0 oklch(0% 0 0 / 0.05);
   --bambi-shadow-md: 0 4px 6px -1px oklch(0% 0 0 / 0.1), 0 2px 4px -2px oklch(0% 0 0 / 0.1);
   --bambi-shadow-lg: 0 10px 15px -3px oklch(0% 0 0 / 0.1), 0 4px 6px -4px oklch(0% 0 0 / 0.1);
@@ -131,6 +152,10 @@
   --bambi-muted-foreground: oklch(60% 0 0);
   --bambi-destructive: oklch(60% 0.22 25);
   --bambi-destructive-foreground: oklch(98% 0 0);
+  --bambi-success: oklch(65% 0.17 145);
+  --bambi-success-foreground: oklch(98% 0 0);
+  --bambi-warning: oklch(80% 0.17 70);
+  --bambi-warning-foreground: oklch(15% 0 0);
   --bambi-border: oklch(40% 0 0);
   --bambi-input: oklch(40% 0 0);
   --bambi-ring: oklch(65% 0.22 250);
