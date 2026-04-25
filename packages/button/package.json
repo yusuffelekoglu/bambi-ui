@@ -1,7 +1,17 @@
 {
   "name": "@bambi-ui/button",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "private": false,
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yusuffelekoglu/bambi-ui.git",
+    "directory": "packages/button"
+  },
+  "homepage": "https://github.com/yusuffelekoglu/bambi-ui/tree/main/packages/button#readme",
+  "bugs": {
+    "url": "https://github.com/yusuffelekoglu/bambi-ui/issues"
+  },
   "publishConfig": {
     "access": "public"
   },
