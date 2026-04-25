@@ -4,7 +4,7 @@ export default function Home() {
   return (
     <div>
       <Card title="Test" href="#">
-        <Button appName="playground">Click me</Button>
+        <Button>Click me</Button>
       </Card>
     </div>
   );
