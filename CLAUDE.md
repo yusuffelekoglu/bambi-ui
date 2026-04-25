@@ -44,10 +44,11 @@ This is a **pnpm + Turborepo monorepo** with two layers:
 
 ### Packages (`packages/`)
 
-- **`@bambi-ui/button`** — Button component package.
-- **`@bambi-ui/card`** — Card component package.
-- **`@bambi-ui/code`** — Inline code component package.
-- **`@bambi-ui/color-picker`** — Color picker component package.
+- **`@bambi-ui/a11y`** — Accessibility primitives used internally and available to consumers: `useFocusTrap`, `useFocusRing`, `usePress`, `useId`, `useControllableState`, `composeRefs`/`useComposeRefs`, `announce`.
+- **`@bambi-ui/button`** — Accessible Button component.
+- **`@bambi-ui/card`** — Semantic Card component.
+- **`@bambi-ui/code`** — Inline code component.
+- **`@bambi-ui/color-picker`** — Accessible color picker component.
 - **`@bambi-ui/theme`** — Shared theming assets (`tokens.css`) and utilities (`cn`).
 
 ### Key conventions
@@ -64,6 +65,65 @@ This is a **pnpm + Turborepo monorepo** with two layers:
 - All `"use client"` directives belong in component packages as needed. In Astro, React components need `client:load` (or another client directive) to be interactive.
 - Turbo task graph: `build` and `check-types` depend on `^build`/`^check-types` (packages build before apps). `dev` is persistent with no cache.
 - TypeScript strict mode is on (`strict: true`, `noUncheckedIndexedAccess: true`) across all packages.
+
+## Accessibility & Web Standards
+
+All `@bambi-ui` components must meet **WCAG 2.2 AA**. Follow these rules when building or modifying components.
+
+### Semantic HTML
+
+- Use the correct native element (`<button>`, `<a>`, `<input>`, etc.) before reaching for a `<div>` with ARIA.
+- Headings must follow a logical hierarchy — never skip levels.
+
+### ARIA
+
+- Follow [ARIA Authoring Practices Guide (APG)](https://www.w3.org/WAI/ARIA/apg/) patterns for complex widgets (dialogs, menus, tabs, comboboxes).
+- Only add `role` and `aria-*` attributes when native semantics are insufficient.
+- Every interactive element must have an accessible name (visible label, `aria-label`, or `aria-labelledby`).
+
+### Keyboard Navigation
+
+- All interactive components must be fully operable by keyboard.
+- Focus order must be logical and predictable.
+- Visible focus indicators are required — never `outline: none` without a custom replacement. Use `useFocusRing` from `@bambi-ui/a11y` to show focus rings only on keyboard navigation.
+- Use `useFocusTrap` from `@bambi-ui/a11y` for modal-like components that need to constrain focus.
+
+### Screen Readers
+
+- Use `announce` from `@bambi-ui/a11y` for dynamic status messages (wraps double-buffered `aria-live` regions).
+- Use `usePress` from `@bambi-ui/a11y` to make non-button elements keyboard-accessible (`Enter`/`Space` activation, `aria-disabled`).
+
+### Color & Contrast
+
+- Text contrast ratio ≥ 4.5:1 (normal text) and ≥ 3:1 (large text) against background.
+- Never convey information through color alone — pair with text, icons, or patterns.
+
+### Zero Unnecessary JavaScript
+
+Packages must stay as lean as possible. Apply this hierarchy when implementing any behavior:
+
+1. **Native HTML** — use the element or attribute that provides the behavior for free (`<details>`, `<dialog>`, `required`, `disabled`, `type="checkbox"`, etc.).
+2. **CSS** — handle visual states, transitions, layout, and interactivity with CSS (`:hover`, `:focus-visible`, `:checked`, `@starting-style`, `transition`, `animation`, `popover` + `:popover-open`).
+3. **JavaScript** — only add JS when HTML and CSS genuinely cannot solve the problem (complex focus management, live announcements, controllable state).
+
+**Rules:**
+- Never use a JS event listener to set a visual style that `:hover`, `:focus`, `:active`, or `:checked` can express natively.
+- Never replicate browser-native behavior in JS (form validation, checkbox toggle, link navigation).
+- Avoid runtime class toggling for styles that CSS pseudo-classes can handle.
+- Animations and transitions belong in CSS — not `requestAnimationFrame` loops or JS-driven style mutations.
+- If a utility hook in `@bambi-ui/a11y` is not used in a component, do not import it — tree-shaking is not a license to import freely.
+- Benchmark bundle size when adding new JS to a package. A new component should add < 1 kB of JS (gzipped) unless there is a clear accessibility justification.
+
+### New component checklist
+
+- [ ] Uses a semantic HTML element
+- [ ] Has an accessible name
+- [ ] Keyboard operable (Tab, Enter/Space, arrow keys where applicable)
+- [ ] Focus indicator visible on keyboard navigation
+- [ ] ARIA roles/attributes follow the APG pattern (if applicable)
+- [ ] Uses `@bambi-ui/a11y` primitives only when native HTML and CSS cannot solve the problem
+- [ ] No JS used for styles expressible via CSS pseudo-classes
+- [ ] No new JS added without an accessibility or functionality justification
 
 ## Publishing
 

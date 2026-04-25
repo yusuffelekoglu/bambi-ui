@@ -1,6 +1,17 @@
 # bambi-ui
 
-`bambi-ui` is a pnpm + Turborepo monorepo for building and publishing reusable React UI packages under the `@bambi-ui` scope.
+`bambi-ui` is an accessibility-first React UI component library built on web standards. Every component targets WCAG 2.2 AA compliance, uses semantic HTML, and ships keyboard and screen-reader support out of the box.
+
+The repository is a pnpm + Turborepo monorepo that publishes independent packages under the `@bambi-ui` scope.
+
+## Philosophy
+
+- **Accessibility first** — components meet WCAG 2.2 AA. ARIA roles, labels, and live regions are built in, not bolted on.
+- **Web standards** — semantic HTML elements are used where possible; custom widgets follow the [ARIA Authoring Practices Guide (APG)](https://www.w3.org/WAI/ARIA/apg/) patterns.
+- **Keyboard navigable** — every interactive component is fully operable by keyboard.
+- **Screen reader friendly** — components are designed and tested against VoiceOver and NVDA.
+- **Progressive enhancement** — base functionality works without JavaScript where applicable.
+- **Zero unnecessary JavaScript** — CSS handles visual states (hover, focus, transitions, layout). JavaScript is only added when native HTML and CSS genuinely cannot solve the problem. Every byte of JS in a package must justify its existence.
 
 ## What is in this repository
 
@@ -10,12 +21,12 @@
 
 Current package scope includes:
 
-- `@bambi-ui/a11y`
-- `@bambi-ui/button`
-- `@bambi-ui/card`
-- `@bambi-ui/code`
-- `@bambi-ui/color-picker`
-- `@bambi-ui/theme`
+- `@bambi-ui/a11y` — accessibility primitives (`useFocusTrap`, `useFocusRing`, `usePress`, `announce`, and more)
+- `@bambi-ui/button` — accessible Button component
+- `@bambi-ui/card` — semantic Card component
+- `@bambi-ui/code` — inline code component
+- `@bambi-ui/color-picker` — accessible color picker
+- `@bambi-ui/theme` — design tokens and theming utilities
 
 ## npm organization
 
