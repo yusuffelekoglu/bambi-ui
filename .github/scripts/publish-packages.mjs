@@ -116,7 +116,7 @@ for (const packageDirectory of orderedPackages) {
 
   if (mode === "build") {
     console.log(`Building ${packageJson.name}@${packageJson.version}`);
-    run(`pnpm --dir ${JSON.stringify(packageDirectory)} build`);
+    run("pnpm build", { cwd: packageDirectory });
     continue;
   }
 
@@ -137,7 +137,7 @@ for (const packageDirectory of orderedPackages) {
     // Package is not published yet.
   }
 
-  run(
-    `pnpm --dir ${JSON.stringify(packageDirectory)} publish --access public --no-git-checks --tag latest`,
-  );
+  run("pnpm publish --access public --no-git-checks --tag latest", {
+    cwd: packageDirectory,
+  });
 }
