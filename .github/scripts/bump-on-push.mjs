@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 
 import { readdir, readFile, writeFile } from "node:fs/promises";
+import { createReadStream, createWriteStream, openSync } from "node:fs";
 import path from "node:path";
 import readline from "node:readline/promises";
 import { stdin as input, stdout as output, exit, env } from "node:process";
@@ -27,11 +28,25 @@ async function main() {
     exit(0);
   }
 
-  if (!input.isTTY) {
-    output.write("[pre-push] Interaktif terminal bulunamadi.\n");
-    output.write("[pre-push] Bump sorusu gosterilemedigi icin push durduruldu.\n");
-    output.write("[pre-push] Lutfen terminalden tekrar git push calistir.\n");
-    exit(1);
+  let promptInput = input;
+  let promptOutput = output;
+  let ttyIn;
+  let ttyOut;
+
+  if (!input.isTTY || !output.isTTY) {
+    try {
+      const readFd = openSync("/dev/tty", "r");
+      const writeFd = openSync("/dev/tty", "w");
+      ttyIn = createReadStream("/dev/tty", { fd: readFd, autoClose: true });
+      ttyOut = createWriteStream("/dev/tty", { fd: writeFd, autoClose: true });
+      promptInput = ttyIn;
+      promptOutput = ttyOut;
+    } catch {
+      output.write("[pre-push] Interaktif terminal bulunamadi.\n");
+      output.write("[pre-push] Bump sorusu gosterilemedigi icin push durduruldu.\n");
+      output.write("[pre-push] Lutfen terminalden tekrar git push calistir.\n");
+      exit(1);
+    }
   }
 
   const packagesDir = path.resolve("packages");
@@ -58,7 +73,7 @@ async function main() {
     exit(0);
   }
 
-  const rl = readline.createInterface({ input, output });
+  const rl = readline.createInterface({ input: promptInput, output: promptOutput });
 
   try {
     const answer = await rl.question(
@@ -108,6 +123,8 @@ async function main() {
     exit(1);
   } finally {
     rl.close();
+    ttyIn?.destroy();
+    ttyOut?.end();
   }
 }
 
