@@ -107,6 +107,10 @@ function run(command, options = {}) {
   });
 }
 
+function escapeArg(value) {
+  return JSON.stringify(String(value));
+}
+
 const orderedPackages = sortPackages();
 
 for (const packageDirectory of orderedPackages) {
@@ -137,7 +141,26 @@ for (const packageDirectory of orderedPackages) {
     // Package is not published yet.
   }
 
-  run("pnpm publish --access public --no-git-checks --tag latest", {
-    cwd: packageDirectory,
-  });
+  const otp = process.env.NPM_OTP;
+  const otpArg = otp ? ` --otp ${escapeArg(otp)}` : "";
+
+  try {
+    run(`pnpm publish --access public --no-git-checks --tag latest${otpArg}`, {
+      cwd: packageDirectory,
+    });
+  } catch (error) {
+    const message = error instanceof Error ? error.message : String(error);
+
+    if (message.includes("EOTP")) {
+      throw new Error(
+        [
+          "npm publish failed with EOTP.",
+          "Use an npm Automation token in NPM_TOKEN for CI publishing (recommended).",
+          "Alternatively, provide a short-lived code via NPM_OTP and rerun.",
+        ].join(" "),
+      );
+    }
+
+    throw error;
+  }
 }
