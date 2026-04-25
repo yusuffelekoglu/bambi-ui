@@ -19,7 +19,6 @@
     "check-types": "tsc --noEmit"
   },
   "dependencies": {
-    "@bambi-ui/a11y": "workspace:*",
     "@bambi-ui/theme": "workspace:*"
   },
   "peerDependencies": {

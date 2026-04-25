@@ -41,7 +41,13 @@
 	color: var(--bambi-foreground);
 }
 
-.bambi-color-picker-input:focus {
-	outline: none;
-	box-shadow: 0 0 0 1px var(--bambi-ring);
+.bambi-color-picker-input:focus-visible {
+	outline: 2px solid var(--bambi-ring);
+	outline-offset: 2px;
+}
+
+.bambi-color-picker-swatch-wrap:has(:focus-visible) {
+	outline: 2px solid var(--bambi-ring);
+	outline-offset: 2px;
+	border-radius: var(--bambi-radius-sm);
 }

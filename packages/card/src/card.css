@@ -6,7 +6,13 @@
 	padding: 1.5rem;
 	color: var(--bambi-secondary-foreground);
 	text-decoration: none;
+	outline: none;
 	transition: background-color 0.15s ease;
+}
+
+.bambi-card:focus-visible {
+	outline: 2px solid var(--bambi-ring);
+	outline-offset: 2px;
 }
 
 .bambi-card:hover {
