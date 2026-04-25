@@ -1,43 +1,38 @@
-# Astro Starter Kit: Minimal
+# bambi-ui docs
 
-```sh
-pnpm create astro@latest -- --template minimal
-```
+This app is the documentation and live preview site for the `@bambi-ui/*` component packages.
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+- Production URL: `https://bambi-ui.felekoglu.dev`
 
-## 🚀 Project Structure
+## What this app contains
 
-Inside of your Astro project, you'll see the following folders and files:
+- Component docs pages under `src/pages/components/<name>/index.astro`
+- Package-level docs pages under `src/pages/packages/`
+- Theme Builder page under `src/pages/theme/index.astro`
+- Docs-only React helpers in `src/components/`
 
-```text
-/
-├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
-```
+## Local development
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+Run commands from the monorepo root.
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+| Command                          | Action                                 |
+| :------------------------------- | :------------------------------------- |
+| `pnpm install`                   | Install dependencies                   |
+| `pnpm turbo dev --filter=docs`   | Start docs app in dev mode (port 3000) |
+| `pnpm turbo build --filter=docs` | Build only docs app                    |
+| `pnpm check-types`               | Run workspace type checks              |
+| `pnpm lint`                      | Run workspace lint tasks               |
 
-Any static assets, like images, can be placed in the `public/` directory.
+## Package publishing and npm scope
 
-## 🧞 Commands
+- npm scope: `@bambi-ui`
+- package management page: `https://www.npmjs.com/settings/bambi-ui/packages`
+- public organization page: `https://www.npmjs.com/org/bambi-ui`
 
-All commands are run from the root of the project, from a terminal:
+Publishing is handled in CI via `.github/workflows/publish-packages.yml` and `.github/scripts/publish-packages.mjs`.
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `pnpm install`             | Installs dependencies                            |
-| `pnpm dev`             | Starts local dev server at `localhost:4321`      |
-| `pnpm build`           | Build your production site to `./dist/`          |
-| `pnpm preview`         | Preview your build locally, before deploying     |
-| `pnpm astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `pnpm astro -- --help` | Get help using the Astro CLI                     |
+## Notes for adding a new component package
 
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+1. Create a package under `packages/<name>/` with `package.json`, `tsconfig.json`, and `src/index.tsx`.
+2. Add a docs page at `apps/docs/src/pages/components/<name>/index.astro`.
+3. Build and type-check from the repo root before publishing.

@@ -35,12 +35,15 @@ There are no tests configured yet.
 This is a **pnpm + Turborepo monorepo** with two layers:
 
 ### Apps (`apps/`)
+
 - **`docs`** — Astro app on port 3000. Serves as the documentation and live preview site for `@bambi-ui/*` packages.
+  - Production URL: `https://bambi-ui.felekoglu.dev`
   - Component pages live under `src/pages/components/<name>/index.astro`.
   - The Theme Builder lives at `src/pages/theme/index.astro` and uses `src/components/ThemeBuilder.tsx`.
   - Docs-only React components (not exported from packages) live in `src/components/`.
 
 ### Packages (`packages/`)
+
 - **`@bambi-ui/button`** — Button component package.
 - **`@bambi-ui/card`** — Card component package.
 - **`@bambi-ui/code`** — Inline code component package.
@@ -48,8 +51,11 @@ This is a **pnpm + Turborepo monorepo** with two layers:
 - **`@bambi-ui/theme`** — Shared theming assets (`tokens.css`) and utilities (`cn`).
 
 ### Key conventions
+
 - Package manager: **pnpm** (v9). Never use `npm` or `yarn`.
 - Shared package scope is **`@bambi-ui`**.
+- npm package management page: `https://www.npmjs.com/settings/bambi-ui/packages`
+- npm public organization page: `https://www.npmjs.com/org/bambi-ui`
 - ESLint and TypeScript configs are managed per app/package (no shared config workspace packages).
 - Import each component from its own package (for example: `@bambi-ui/button`).
 - Import design tokens from `@bambi-ui/theme/tokens.css`.
@@ -59,20 +65,27 @@ This is a **pnpm + Turborepo monorepo** with two layers:
 - Turbo task graph: `build` and `check-types` depend on `^build`/`^check-types` (packages build before apps). `dev` is persistent with no cache.
 - TypeScript strict mode is on (`strict: true`, `noUncheckedIndexedAccess: true`) across all packages.
 
+## Publishing
+
+- GitHub Actions publish workflow: `.github/workflows/publish-packages.yml`
+- Publish/build helper script: `.github/scripts/publish-packages.mjs`
+- Workflow discovers and processes all publishable packages under `packages/*`.
+- For CI publishing, use an npm **Automation token** in the `NPM_TOKEN` secret to avoid interactive OTP prompts.
+
 ## Design tokens (`packages/theme/src/tokens.css`)
 
 All tokens are defined as `--bambi-*` CSS custom properties and exposed to Tailwind v4 via `@theme inline`. The full token set:
 
-| Group        | Tokens                                                                                  |
-|--------------|-----------------------------------------------------------------------------------------|
-| Base         | `background`, `foreground`                                                              |
-| Surface      | `card`, `card-foreground`, `popover`, `popover-foreground`                              |
-| Brand        | `primary`, `primary-foreground`, `secondary`, `secondary-foreground`, `accent`, `accent-foreground` |
-| State        | `muted`, `muted-foreground`, `destructive`, `destructive-foreground`                    |
-| Utility      | `border`, `input`, `ring`                                                               |
-| Border Radius| `radius-sm`, `radius-md`, `radius-lg`, `radius-xl`, `radius-full`                      |
-| Typography   | `font-sans`, `font-mono`                                                                |
-| Shadows      | `shadow-sm`, `shadow-md`, `shadow-lg`                                                   |
+| Group         | Tokens                                                                                              |
+| ------------- | --------------------------------------------------------------------------------------------------- |
+| Base          | `background`, `foreground`                                                                          |
+| Surface       | `card`, `card-foreground`, `popover`, `popover-foreground`                                          |
+| Brand         | `primary`, `primary-foreground`, `secondary`, `secondary-foreground`, `accent`, `accent-foreground` |
+| State         | `muted`, `muted-foreground`, `destructive`, `destructive-foreground`                                |
+| Utility       | `border`, `input`, `ring`                                                                           |
+| Border Radius | `radius-sm`, `radius-md`, `radius-lg`, `radius-xl`, `radius-full`                                   |
+| Typography    | `font-sans`, `font-mono`                                                                            |
+| Shadows       | `shadow-sm`, `shadow-md`, `shadow-lg`                                                               |
 
 **Override pattern** — paste into your `global.css` after `@import "@bambi-ui/theme/tokens.css"`:
 
