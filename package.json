@@ -7,7 +7,7 @@
     "lint": "turbo run lint",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
     "check-types": "turbo run check-types",
-    "setup-hooks": "git config core.hooksPath .githooks"
+    "bump-versions": "node .github/scripts/bump-versions.mjs"
   },
   "devDependencies": {
     "prettier": "^3.8.3",

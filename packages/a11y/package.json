@@ -1,6 +1,6 @@
 {
   "name": "@bambi-ui/a11y",
-  "version": "0.0.1",
+  "version": "0.0.8",
   "private": false,
   "publishConfig": {
     "access": "public"
