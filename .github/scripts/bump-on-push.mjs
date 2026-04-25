@@ -1,10 +1,9 @@
 #!/usr/bin/env node
 
 import { readdir, readFile, writeFile } from "node:fs/promises";
-import { createReadStream, createWriteStream, existsSync } from "node:fs";
 import path from "node:path";
 import readline from "node:readline/promises";
-import { stdin as processInput, stdout as processOutput, exit, env } from "node:process";
+import { stdin as input, stdout as output, exit, env } from "node:process";
 import { spawnSync } from "node:child_process";
 
 const SEMVER_REGEX =
@@ -28,23 +27,11 @@ async function main() {
     exit(0);
   }
 
-  let input = processInput;
-  let output = processOutput;
-  let ttyInputStream;
-  let ttyOutputStream;
-
-  if (!processInput.isTTY) {
-    if (existsSync("/dev/tty")) {
-      ttyInputStream = createReadStream("/dev/tty");
-      ttyOutputStream = createWriteStream("/dev/tty");
-      input = ttyInputStream;
-      output = ttyOutputStream;
-    } else {
-      processOutput.write("[pre-push] Interaktif terminal bulunamadi.\n");
-      processOutput.write("[pre-push] Bump sorusu gosterilemedigi icin push durduruldu.\n");
-      processOutput.write("[pre-push] Lutfen terminalden tekrar `git push` calistir.\n");
-      exit(1);
-    }
+  if (!input.isTTY) {
+    output.write("[pre-push] Interaktif terminal bulunamadi.\n");
+    output.write("[pre-push] Bump sorusu gosterilemedigi icin push durduruldu.\n");
+    output.write("[pre-push] Lutfen terminalden tekrar git push calistir.\n");
+    exit(1);
   }
 
   const packagesDir = path.resolve("packages");
@@ -121,8 +108,6 @@ async function main() {
     exit(1);
   } finally {
     rl.close();
-    ttyInputStream?.destroy();
-    ttyOutputStream?.end();
   }
 }
 
