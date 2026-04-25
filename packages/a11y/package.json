@@ -1,6 +1,6 @@
 {
-  "name": "@bambi-ui/button",
-  "version": "0.0.6",
+  "name": "@bambi-ui/a11y",
+  "version": "0.0.1",
   "private": false,
   "publishConfig": {
     "access": "public"
@@ -15,12 +15,8 @@
     }
   },
   "scripts": {
-    "build": "tsup src/index.tsx --format esm --dts --clean --inject-style",
+    "build": "tsup src/index.ts --format esm --dts --clean",
     "check-types": "tsc --noEmit"
-  },
-  "dependencies": {
-    "@bambi-ui/a11y": "workspace:*",
-    "@bambi-ui/theme": "workspace:*"
   },
   "peerDependencies": {
     "react": "^19.0.0"

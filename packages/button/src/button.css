@@ -1,19 +1,79 @@
 .bambi-button {
   display: inline-flex;
-  cursor: pointer;
   align-items: center;
   justify-content: center;
-  border: none;
+  gap: 0.375rem;
+  border: 1px solid transparent;
   border-radius: var(--bambi-radius-md);
-  background-color: var(--bambi-primary);
-  padding: 0.5rem 1rem;
-  font-family: inherit;
-  font-size: 0.875rem;
-  font-weight: 500;
-  color: var(--bambi-primary-foreground);
-  transition: opacity 0.15s ease;
+  font-family: var(--bambi-font-sans);
+  font-size: var(--bambi-text-sm);
+  font-weight: var(--bambi-font-weight-medium);
+  line-height: 1;
+  white-space: nowrap;
+  cursor: pointer;
+  user-select: none;
+  outline: none;
+  transition: opacity 0.15s ease, background-color 0.15s ease;
 }
 
-.bambi-button:hover {
+/* sizes */
+.bambi-button[data-size="sm"] {
+  padding: var(--bambi-button-padding-sm);
+  font-size: var(--bambi-text-xs);
+  border-radius: var(--bambi-radius-sm);
+}
+.bambi-button[data-size="md"] {
+  padding: var(--bambi-button-padding-md);
+  font-size: var(--bambi-text-sm);
+}
+.bambi-button[data-size="lg"] {
+  padding: var(--bambi-button-padding-lg);
+  font-size: var(--bambi-text-base);
+}
+
+/* variants */
+.bambi-button[data-variant="primary"] {
+  background-color: var(--bambi-primary);
+  color: var(--bambi-primary-foreground);
+}
+.bambi-button[data-variant="primary"]:hover:not(:disabled) {
   opacity: 0.9;
+}
+
+.bambi-button[data-variant="secondary"] {
+  background-color: var(--bambi-secondary);
+  color: var(--bambi-secondary-foreground);
+  border-color: var(--bambi-border);
+}
+.bambi-button[data-variant="secondary"]:hover:not(:disabled) {
+  opacity: 0.9;
+}
+
+.bambi-button[data-variant="ghost"] {
+  background-color: transparent;
+  color: var(--bambi-foreground);
+}
+.bambi-button[data-variant="ghost"]:hover:not(:disabled) {
+  background-color: var(--bambi-accent);
+  color: var(--bambi-accent-foreground);
+}
+
+.bambi-button[data-variant="destructive"] {
+  background-color: var(--bambi-destructive);
+  color: var(--bambi-destructive-foreground);
+}
+.bambi-button[data-variant="destructive"]:hover:not(:disabled) {
+  opacity: 0.9;
+}
+
+/* keyboard focus ring — mouse tıklamada görünmez */
+.bambi-button[data-focus-visible] {
+  outline: 2px solid var(--bambi-ring);
+  outline-offset: 2px;
+}
+
+/* disabled */
+.bambi-button:disabled {
+  opacity: 0.5;
+  pointer-events: none;
 }

@@ -1,37 +1,96 @@
 ---
+import { marked } from "marked";
 import { Button } from "@bambi-ui/button";
 import Layout from "../../../layouts/Layout.astro";
+import readme from "../../../../../../packages/button/README.md?raw";
+
+const readmeHtml = await marked(readme);
 ---
 
 <Layout title="Button">
   <h1 class="mb-2 text-3xl font-bold">Button</h1>
-  <p class="mb-10 text-muted-foreground">Client-side button that triggers an alert with the app name.</p>
+  <p class="mb-10 text-muted-foreground">
+    Accessible, themeable button with keyboard focus ring support.
+  </p>
 
-  <h2 class="mb-3 text-xs font-semibold uppercase tracking-widest text-muted-foreground">Preview</h2>
-  <div class="flex flex-wrap items-center gap-3 rounded-lg border border-border bg-secondary p-8">
-    <Button appName="docs" client:load>Click me</Button>
-    <Button appName="docs" className="opacity-50 cursor-not-allowed" client:load>Disabled look</Button>
+  <!-- Variants -->
+  <h2 class="mb-3 text-xs font-semibold uppercase tracking-widest text-muted-foreground">Variants</h2>
+  <div class="mb-2 flex flex-wrap items-center gap-3 rounded-lg border border-border bg-secondary p-8">
+    <Button client:load>Primary</Button>
+    <Button variant="secondary" client:load>Secondary</Button>
+    <Button variant="ghost" client:load>Ghost</Button>
+    <Button variant="destructive" client:load>Destructive</Button>
+  </div>
+  <pre class="mb-10 overflow-x-auto rounded-md border border-border bg-muted px-5 py-4 text-xs text-foreground">{`<Button>Primary</Button>
+<Button variant="secondary">Secondary</Button>
+<Button variant="ghost">Ghost</Button>
+<Button variant="destructive">Destructive</Button>`}</pre>
+
+  <!-- Sizes -->
+  <h2 class="mb-3 text-xs font-semibold uppercase tracking-widest text-muted-foreground">Sizes</h2>
+  <div class="mb-2 flex flex-wrap items-end gap-3 rounded-lg border border-border bg-secondary p-8">
+    <Button size="sm" client:load>Small</Button>
+    <Button size="md" client:load>Medium</Button>
+    <Button size="lg" client:load>Large</Button>
+  </div>
+  <pre class="mb-10 overflow-x-auto rounded-md border border-border bg-muted px-5 py-4 text-xs text-foreground">{`<Button size="sm">Small</Button>
+<Button size="md">Medium</Button>
+<Button size="lg">Large</Button>`}</pre>
+
+  <!-- Disabled -->
+  <h2 class="mb-3 text-xs font-semibold uppercase tracking-widest text-muted-foreground">Disabled</h2>
+  <div class="mb-2 flex flex-wrap items-center gap-3 rounded-lg border border-border bg-secondary p-8">
+    <Button disabled client:load>Primary</Button>
+    <Button variant="secondary" disabled client:load>Secondary</Button>
+    <Button variant="ghost" disabled client:load>Ghost</Button>
+    <Button variant="destructive" disabled client:load>Destructive</Button>
+  </div>
+  <pre class="mb-10 overflow-x-auto rounded-md border border-border bg-muted px-5 py-4 text-xs text-foreground">{`<Button disabled>Primary</Button>`}</pre>
+
+  <!-- Combinations -->
+  <h2 class="mb-3 text-xs font-semibold uppercase tracking-widest text-muted-foreground">All combinations</h2>
+  <div class="mb-10 overflow-x-auto rounded-lg border border-border bg-secondary p-8">
+    <table class="w-full text-sm">
+      <thead>
+        <tr>
+          <th class="pb-4 pr-6 text-left text-xs font-medium text-muted-foreground"></th>
+          <th class="pb-4 pr-6 text-left text-xs font-medium text-muted-foreground">sm</th>
+          <th class="pb-4 pr-6 text-left text-xs font-medium text-muted-foreground">md</th>
+          <th class="pb-4 pr-6 text-left text-xs font-medium text-muted-foreground">lg</th>
+        </tr>
+      </thead>
+      <tbody class="[&_td]:pb-3 [&_td]:pr-6">
+        <tr>
+          <td class="text-xs text-muted-foreground">primary</td>
+          <td><Button size="sm" client:load>Label</Button></td>
+          <td><Button size="md" client:load>Label</Button></td>
+          <td><Button size="lg" client:load>Label</Button></td>
+        </tr>
+        <tr>
+          <td class="text-xs text-muted-foreground">secondary</td>
+          <td><Button variant="secondary" size="sm" client:load>Label</Button></td>
+          <td><Button variant="secondary" size="md" client:load>Label</Button></td>
+          <td><Button variant="secondary" size="lg" client:load>Label</Button></td>
+        </tr>
+        <tr>
+          <td class="text-xs text-muted-foreground">ghost</td>
+          <td><Button variant="ghost" size="sm" client:load>Label</Button></td>
+          <td><Button variant="ghost" size="md" client:load>Label</Button></td>
+          <td><Button variant="ghost" size="lg" client:load>Label</Button></td>
+        </tr>
+        <tr>
+          <td class="text-xs text-muted-foreground">destructive</td>
+          <td><Button variant="destructive" size="sm" client:load>Label</Button></td>
+          <td><Button variant="destructive" size="md" client:load>Label</Button></td>
+          <td><Button variant="destructive" size="lg" client:load>Label</Button></td>
+        </tr>
+      </tbody>
+    </table>
   </div>
 
-  <h2 class="mb-3 mt-10 text-xs font-semibold uppercase tracking-widest text-muted-foreground">Usage</h2>
-  <pre class="overflow-x-auto rounded-md border border-border bg-muted px-5 py-4 text-xs text-foreground">{`import { Button } from "@bambi-ui/button";
-
-<Button appName="web">Click me</Button>`}</pre>
-
-  <h2 class="mb-3 mt-10 text-xs font-semibold uppercase tracking-widest text-muted-foreground">Props</h2>
-  <table class="w-full border-collapse text-sm">
-    <thead>
-      <tr>
-        <th class="border-b border-border px-4 py-2 text-left font-medium text-muted-foreground">Prop</th>
-        <th class="border-b border-border px-4 py-2 text-left font-medium text-muted-foreground">Type</th>
-        <th class="border-b border-border px-4 py-2 text-left font-medium text-muted-foreground">Required</th>
-        <th class="border-b border-border px-4 py-2 text-left font-medium text-muted-foreground">Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr><td class="border-b border-border/50 px-4 py-2"><code class="rounded bg-muted px-1 text-xs">appName</code></td><td class="border-b border-border/50 px-4 py-2 text-muted-foreground"><code class="rounded bg-muted px-1 text-xs">string</code></td><td class="border-b border-border/50 px-4 py-2">✓</td><td class="border-b border-border/50 px-4 py-2 text-muted-foreground">App name shown in the alert message.</td></tr>
-      <tr><td class="border-b border-border/50 px-4 py-2"><code class="rounded bg-muted px-1 text-xs">children</code></td><td class="border-b border-border/50 px-4 py-2 text-muted-foreground"><code class="rounded bg-muted px-1 text-xs">ReactNode</code></td><td class="border-b border-border/50 px-4 py-2">✓</td><td class="border-b border-border/50 px-4 py-2 text-muted-foreground">Button content.</td></tr>
-      <tr><td class="px-4 py-2"><code class="rounded bg-muted px-1 text-xs">className</code></td><td class="px-4 py-2 text-muted-foreground"><code class="rounded bg-muted px-1 text-xs">string</code></td><td class="px-4 py-2">—</td><td class="px-4 py-2 text-muted-foreground">Additional Tailwind classes or custom CSS class.</td></tr>
-    </tbody>
-  </table>
+  <!-- README -->
+  <hr class="border-border" />
+  <div class="prose mt-8">
+    <Fragment set:html={readmeHtml} />
+  </div>
 </Layout>

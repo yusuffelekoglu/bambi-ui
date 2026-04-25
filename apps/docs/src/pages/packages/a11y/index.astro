@@ -1,0 +1,18 @@
+---
+import { marked } from "marked";
+import Layout from "../../../layouts/Layout.astro";
+import readme from "../../../../../../packages/a11y/README.md?raw";
+
+const readmeHtml = await marked(readme);
+---
+
+<Layout title="a11y">
+  <h1 class="mb-2 text-3xl font-bold">@bambi-ui/a11y</h1>
+  <p class="mb-10 text-muted-foreground">
+    Accessibility primitives used across all <code class="rounded bg-muted px-1 text-xs">@bambi-ui</code> components.
+  </p>
+
+  <div class="prose">
+    <Fragment set:html={readmeHtml} />
+  </div>
+</Layout>

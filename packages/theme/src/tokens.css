@@ -49,9 +49,21 @@
   --radius-xl: var(--bambi-radius-xl);
   --radius-full: var(--bambi-radius-full);
 
-  /* Typography */
+  /* Typography — families */
   --font-sans: var(--bambi-font-sans);
   --font-mono: var(--bambi-font-mono);
+
+  /* Typography — scale */
+  --text-xs: var(--bambi-text-xs);
+  --text-sm: var(--bambi-text-sm);
+  --text-base: var(--bambi-text-base);
+  --text-lg: var(--bambi-text-lg);
+
+  /* Font weights */
+  --font-weight-normal: var(--bambi-font-weight-normal);
+  --font-weight-medium: var(--bambi-font-weight-medium);
+  --font-weight-semibold: var(--bambi-font-weight-semibold);
+  --font-weight-bold: var(--bambi-font-weight-bold);
 
   /* Shadows */
   --shadow-sm: var(--bambi-shadow-sm);
@@ -73,11 +85,11 @@
   --bambi-accent: oklch(93% 0 0);
   --bambi-accent-foreground: oklch(9% 0 0);
   --bambi-muted: oklch(93% 0 0);
-  --bambi-muted-foreground: oklch(45% 0 0);
+  --bambi-muted-foreground: oklch(42% 0 0);
   --bambi-destructive: oklch(55% 0.22 25);
   --bambi-destructive-foreground: oklch(98% 0 0);
-  --bambi-border: oklch(88% 0 0);
-  --bambi-input: oklch(88% 0 0);
+  --bambi-border: oklch(70% 0 0);
+  --bambi-input: oklch(70% 0 0);
   --bambi-ring: oklch(55% 0.22 250);
   --bambi-radius-sm: 0.25rem;
   --bambi-radius-md: 0.375rem;
@@ -86,6 +98,17 @@
   --bambi-radius-full: 9999px;
   --bambi-font-sans: system-ui, sans-serif;
   --bambi-font-mono: ui-monospace, monospace;
+  --bambi-text-xs: 0.75rem;
+  --bambi-text-sm: 0.875rem;
+  --bambi-text-base: 1rem;
+  --bambi-text-lg: 1.125rem;
+  --bambi-font-weight-normal: 400;
+  --bambi-font-weight-medium: 500;
+  --bambi-font-weight-semibold: 600;
+  --bambi-font-weight-bold: 700;
+  --bambi-button-padding-sm: 0.375rem 0.75rem;
+  --bambi-button-padding-md: 0.5rem 1rem;
+  --bambi-button-padding-lg: 0.625rem 1.25rem;
   --bambi-shadow-sm: 0 1px 2px 0 oklch(0% 0 0 / 0.05);
   --bambi-shadow-md: 0 4px 6px -1px oklch(0% 0 0 / 0.1), 0 2px 4px -2px oklch(0% 0 0 / 0.1);
   --bambi-shadow-lg: 0 10px 15px -3px oklch(0% 0 0 / 0.1), 0 4px 6px -4px oklch(0% 0 0 / 0.1);
@@ -108,8 +131,8 @@
   --bambi-muted-foreground: oklch(60% 0 0);
   --bambi-destructive: oklch(60% 0.22 25);
   --bambi-destructive-foreground: oklch(98% 0 0);
-  --bambi-border: oklch(22% 0 0);
-  --bambi-input: oklch(22% 0 0);
+  --bambi-border: oklch(40% 0 0);
+  --bambi-input: oklch(40% 0 0);
   --bambi-ring: oklch(65% 0.22 250);
   --bambi-shadow-sm: 0 1px 2px 0 oklch(0% 0 0 / 0.3);
   --bambi-shadow-md: 0 4px 6px -1px oklch(0% 0 0 / 0.4), 0 2px 4px -2px oklch(0% 0 0 / 0.4);
