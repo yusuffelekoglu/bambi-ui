@@ -13,6 +13,7 @@
   "dependencies": {
     "@astrojs/check": "^0.9.8",
     "@astrojs/react": "^4.2.1",
+    "@astrojs/sitemap": "^3.7.2",
     "@bambi-ui/button": "workspace:*",
     "@bambi-ui/card": "workspace:*",
     "@bambi-ui/code": "workspace:*",
