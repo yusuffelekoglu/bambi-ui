@@ -1,6 +1,6 @@
 {
   "name": "@bambi-ui/tabs",
-  "version": "0.0.1",
+  "version": "0.0.11",
   "description": "Accessible, themeable Tabs component for bambi-ui — keyboard navigation, controlled and uncontrolled modes, disabled tabs",
   "keywords": [
     "bambi-ui",

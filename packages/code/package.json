@@ -1,6 +1,6 @@
 {
   "name": "@bambi-ui/code",
-  "version": "0.0.10",
+  "version": "0.0.11",
   "description": "Inline code component for bambi-ui — styled monospace code snippet",
   "keywords": [
     "bambi-ui",

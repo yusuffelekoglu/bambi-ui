@@ -1,6 +1,6 @@
 {
   "name": "@bambi-ui/button",
-  "version": "0.0.10",
+  "version": "0.0.11",
   "description": "Accessible, themeable Button component for bambi-ui — 8 variants, 4 sizes, loading state, icon support",
   "keywords": [
     "bambi-ui",
@@ -37,7 +37,9 @@
     },
     "./index.css": "./dist/index.css"
   },
-  "sideEffects": ["**/*.css"],
+  "sideEffects": [
+    "**/*.css"
+  ],
   "scripts": {
     "build": "tsup src/index.tsx --format esm --dts --clean",
     "check-types": "tsc --noEmit"

@@ -1,6 +1,6 @@
 {
   "name": "@bambi-ui/card",
-  "version": "0.0.10",
+  "version": "0.0.11",
   "description": "Semantic Card component for bambi-ui — accessible surface with composable layout",
   "keywords": [
     "bambi-ui",

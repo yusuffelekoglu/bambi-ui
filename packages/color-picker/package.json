@@ -1,6 +1,6 @@
 {
   "name": "@bambi-ui/color-picker",
-  "version": "0.0.10",
+  "version": "0.0.11",
   "description": "Accessible color picker component for bambi-ui — keyboard-navigable oklch color selection",
   "keywords": [
     "bambi-ui",

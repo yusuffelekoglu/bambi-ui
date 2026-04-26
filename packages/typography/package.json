@@ -1,6 +1,6 @@
 {
   "name": "@bambi-ui/typography",
-  "version": "0.0.1",
+  "version": "0.0.11",
   "description": "Accessible, themeable typography components for bambi-ui — Heading (h1–h6) and Text (body, lead, small, muted, label)",
   "keywords": [
     "bambi-ui",

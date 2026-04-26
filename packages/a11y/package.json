@@ -1,6 +1,6 @@
 {
   "name": "@bambi-ui/a11y",
-  "version": "0.0.10",
+  "version": "0.0.11",
   "description": "Accessibility primitives for bambi-ui — focus management, keyboard interaction, live regions, and WCAG-compliant React utilities",
   "keywords": [
     "bambi-ui",
