@@ -118,6 +118,32 @@
   --bambi-shadow-md: 0 4px 6px -1px oklch(0% 0 0 / 0.1), 0 2px 4px -2px oklch(0% 0 0 / 0.1);
   --bambi-shadow-lg: 0 10px 15px -3px oklch(0% 0 0 / 0.1), 0 4px 6px -4px oklch(0% 0 0 / 0.1);
 
+  /* ─── Typography ─────────────────────────────────── */
+  --bambi-typography-color: var(--bambi-foreground);
+  --bambi-typography-font-family: var(--bambi-font-sans);
+  --bambi-text-body-size: var(--bambi-text-base);
+  --bambi-text-body-line-height: 1.75;
+  --bambi-text-lead-size: var(--bambi-text-lg);
+  --bambi-text-lead-color: var(--bambi-muted-foreground);
+  --bambi-text-lead-line-height: 1.75;
+  --bambi-text-small-size: var(--bambi-text-sm);
+  --bambi-text-small-weight: var(--bambi-font-weight-medium);
+  --bambi-text-muted-size: var(--bambi-text-sm);
+  --bambi-text-muted-color: var(--bambi-muted-foreground);
+  --bambi-text-label-size: var(--bambi-text-sm);
+  --bambi-text-label-weight: var(--bambi-font-weight-medium);
+  --bambi-heading-color: var(--bambi-foreground);
+  --bambi-heading-font-family: var(--bambi-font-sans);
+  --bambi-heading-weight: var(--bambi-font-weight-semibold);
+  --bambi-heading-line-height: 1.2;
+  --bambi-heading-1-size: 2.25rem;
+  --bambi-heading-2-size: 1.875rem;
+  --bambi-heading-3-size: 1.5rem;
+  --bambi-heading-4-size: 1.25rem;
+  --bambi-heading-5-size: var(--bambi-text-lg);
+  --bambi-heading-6-size: var(--bambi-text-base);
+  --bambi-heading-6-weight: var(--bambi-font-weight-medium);
+
   /* ─── Button ─────────────────────────────────────── */
   --bambi-button-gap: 0.375rem;
   --bambi-button-border-width: 1px;

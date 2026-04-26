@@ -1,0 +1,62 @@
+.bambi-heading {
+  font-family: var(--bambi-heading-font-family);
+  font-weight: var(--bambi-heading-weight);
+  line-height: var(--bambi-heading-line-height);
+  color: var(--bambi-heading-color);
+}
+
+.bambi-heading[data-level="1"] {
+  font-size: var(--bambi-heading-1-size);
+}
+
+.bambi-heading[data-level="2"] {
+  font-size: var(--bambi-heading-2-size);
+}
+
+.bambi-heading[data-level="3"] {
+  font-size: var(--bambi-heading-3-size);
+}
+
+.bambi-heading[data-level="4"] {
+  font-size: var(--bambi-heading-4-size);
+}
+
+.bambi-heading[data-level="5"] {
+  font-size: var(--bambi-heading-5-size);
+}
+
+.bambi-heading[data-level="6"] {
+  font-size: var(--bambi-heading-6-size);
+  font-weight: var(--bambi-heading-6-weight);
+}
+
+.bambi-text {
+  font-family: var(--bambi-typography-font-family);
+  color: var(--bambi-typography-color);
+}
+
+.bambi-text[data-variant="body"] {
+  font-size: var(--bambi-text-body-size);
+  line-height: var(--bambi-text-body-line-height);
+}
+
+.bambi-text[data-variant="lead"] {
+  font-size: var(--bambi-text-lead-size);
+  line-height: var(--bambi-text-lead-line-height);
+  color: var(--bambi-text-lead-color);
+}
+
+.bambi-text[data-variant="small"] {
+  font-size: var(--bambi-text-small-size);
+  font-weight: var(--bambi-text-small-weight);
+}
+
+.bambi-text[data-variant="muted"] {
+  font-size: var(--bambi-text-muted-size);
+  color: var(--bambi-text-muted-color);
+}
+
+.bambi-text[data-variant="label"] {
+  font-size: var(--bambi-text-label-size);
+  font-weight: var(--bambi-text-label-weight);
+}

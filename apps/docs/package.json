@@ -15,6 +15,7 @@
     "@astrojs/react": "^4.2.1",
     "@astrojs/sitemap": "^3.7.2",
     "@bambi-ui/button": "workspace:*",
+    "@bambi-ui/typography": "workspace:*",
     "@bambi-ui/card": "workspace:*",
     "@bambi-ui/code": "workspace:*",
     "@bambi-ui/color-picker": "workspace:*",
