@@ -1,0 +1,66 @@
+@import "tailwindcss";
+@import "@bambi-ui/theme/tokens.css";
+
+/* Shiki syntax-highlighted code blocks */
+.shiki {
+  background-color: var(--bambi-secondary) !important;
+  border: 1px solid var(--bambi-border);
+  border-radius: var(--bambi-radius-md);
+  padding: 1rem 1.25rem;
+  overflow-x: auto;
+  font-size: 0.75rem;
+  font-family: var(--bambi-font-mono);
+  margin-bottom: 2.5rem;
+}
+
+.shiki span {
+  background-color: transparent !important;
+}
+
+.dark .shiki,
+.dark .shiki span {
+  color: var(--shiki-dark) !important;
+  background-color: var(--bambi-secondary) !important;
+}
+
+/* Prose (README markdown) */
+.prose {
+  --tw-prose-body: var(--bambi-foreground);
+  --tw-prose-headings: var(--bambi-foreground);
+  --tw-prose-lead: var(--bambi-muted-foreground);
+  --tw-prose-links: var(--bambi-primary);
+  --tw-prose-bold: var(--bambi-foreground);
+  --tw-prose-counters: var(--bambi-muted-foreground);
+  --tw-prose-bullets: var(--bambi-muted-foreground);
+  --tw-prose-hr: var(--bambi-border);
+  --tw-prose-quotes: var(--bambi-foreground);
+  --tw-prose-quote-borders: var(--bambi-border);
+  --tw-prose-captions: var(--bambi-muted-foreground);
+  --tw-prose-code: var(--bambi-foreground);
+  --tw-prose-pre-code: var(--bambi-foreground);
+  --tw-prose-pre-bg: var(--bambi-secondary);
+  --tw-prose-th-borders: var(--bambi-border);
+  --tw-prose-td-borders: var(--bambi-border);
+}
+
+.prose pre {
+  border: 1px solid var(--bambi-border);
+  border-radius: var(--bambi-radius-md);
+  font-size: 0.75rem;
+}
+
+.prose :not(pre) > code {
+  background-color: var(--bambi-muted);
+  padding: 0.125rem 0.25rem;
+  border-radius: var(--bambi-radius-sm);
+  font-size: 0.8125em;
+}
+
+.prose :not(pre) > code::before,
+.prose :not(pre) > code::after {
+  content: none;
+}
+
+.dark .shiki code {
+  background-color: transparent !important;
+}

@@ -1,6 +1,4 @@
-"use client";
-
-import { forwardRef, type HTMLAttributes } from "react";
+import { type HTMLAttributes, type Ref } from "react";
 import { cn } from "@bambi-ui/theme";
 import "./typography.css";
 
@@ -8,48 +6,34 @@ export type HeadingLevel = 1 | 2 | 3 | 4 | 5 | 6;
 export type HeadingElement = "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
 
 export interface HeadingProps extends HTMLAttributes<HTMLHeadingElement> {
+  ref?: Ref<HTMLHeadingElement>;
   level?: HeadingLevel;
   as?: HeadingElement;
 }
 
-export const Heading = forwardRef<HTMLHeadingElement, HeadingProps>(
-  ({ level = 1, as, className, children, ...props }, ref) => {
-    const Tag = as ?? (`h${level}` as HeadingElement);
-    return (
-      <Tag
-        ref={ref}
-        data-level={level}
-        className={cn("bambi-heading", className)}
-        {...props}
-      >
-        {children}
-      </Tag>
-    );
-  },
-);
-
-Heading.displayName = "Heading";
+export function Heading({ level = 1, as, ref, className, children, ...props }: HeadingProps) {
+  const Tag = as ?? (`h${level}` as HeadingElement);
+  return (
+    <Tag ref={ref} data-level={level} className={cn("bambi-heading", className)} {...props}>
+      {children}
+    </Tag>
+  );
+}
 
 export type TextVariant = "body" | "lead" | "small" | "muted" | "label";
 export type TextElement = "p" | "span" | "div" | "label" | "strong" | "em" | "small";
 
 export interface TextProps extends HTMLAttributes<HTMLElement> {
+  ref?: Ref<HTMLElement>;
   variant?: TextVariant;
   as?: TextElement;
 }
 
-export const Text = forwardRef<HTMLElement, TextProps>(
-  ({ variant = "body", as: Tag = "p", className, children, ...props }, ref) => (
-    <Tag
-      // @ts-expect-error — ref type varies by element, safe at runtime
-      ref={ref}
-      data-variant={variant}
-      className={cn("bambi-text", className)}
-      {...props}
-    >
+export function Text({ variant = "body", as: Tag = "p", ref, className, children, ...props }: TextProps) {
+  return (
+    // @ts-expect-error — ref type varies by element, safe at runtime
+    <Tag ref={ref} data-variant={variant} className={cn("bambi-text", className)} {...props}>
       {children}
     </Tag>
-  ),
-);
-
-Text.displayName = "Text";
+  );
+}

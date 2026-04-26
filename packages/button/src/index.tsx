@@ -1,8 +1,6 @@
-"use client";
-
-import { forwardRef, type ButtonHTMLAttributes } from "react";
+import { type ButtonHTMLAttributes, type Ref } from "react";
 import { cn } from "@bambi-ui/theme";
-import "./button.css";
+import "./index.css";
 
 export type ButtonVariant =
   | "primary"
@@ -17,24 +15,23 @@ export type ButtonVariant =
 export type ButtonSize = "sm" | "md" | "lg" | "icon";
 
 export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+  ref?: Ref<HTMLButtonElement>;
   variant?: ButtonVariant;
   size?: ButtonSize;
   loading?: boolean;
 }
 
-export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
-  (
-    {
-      children,
-      className,
-      variant = "primary",
-      size = "md",
-      loading = false,
-      disabled,
-      ...props
-    },
-    ref,
-  ) => (
+export function Button({
+  children,
+  className,
+  ref,
+  variant = "primary",
+  size = "md",
+  loading = false,
+  disabled,
+  ...props
+}: ButtonProps) {
+  return (
     <button
       ref={ref}
       data-variant={variant}
@@ -49,7 +46,5 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       {loading && <span className="bambi-button-spinner" aria-hidden="true" />}
       <span className="bambi-button-content">{children}</span>
     </button>
-  ),
-);
-
-Button.displayName = "Button";
+  );
+}

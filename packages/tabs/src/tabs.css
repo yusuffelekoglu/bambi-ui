@@ -1,0 +1,53 @@
+.bambi-tabs {
+  width: 100%;
+}
+
+.bambi-tab-list {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--bambi-tab-gap);
+  background-color: var(--bambi-tab-list-bg);
+  border-radius: var(--bambi-tab-list-radius);
+  padding: var(--bambi-tab-list-padding);
+}
+
+.bambi-tab {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--bambi-tab-padding);
+  border: none;
+  border-radius: var(--bambi-tab-radius);
+  background-color: var(--bambi-tab-bg);
+  color: var(--bambi-tab-color);
+  font-family: var(--bambi-tab-font-family);
+  font-size: var(--bambi-tab-font-size);
+  font-weight: var(--bambi-tab-font-weight);
+  line-height: 1;
+  white-space: nowrap;
+  cursor: pointer;
+  user-select: none;
+  outline: none;
+  transition: var(--bambi-tab-transition);
+}
+
+.bambi-tab[aria-selected="true"] {
+  background-color: var(--bambi-tab-active-bg);
+  color: var(--bambi-tab-active-color);
+  box-shadow: var(--bambi-tab-active-shadow);
+}
+
+.bambi-tab:disabled {
+  opacity: var(--bambi-tab-disabled-opacity);
+  pointer-events: none;
+}
+
+.bambi-tab:focus-visible {
+  outline: var(--bambi-tab-focus-ring-width) solid var(--bambi-tab-ring);
+  outline-offset: var(--bambi-tab-focus-ring-offset);
+}
+
+.bambi-tab-panel {
+  padding-top: var(--bambi-tab-panel-pt);
+  outline: none;
+}

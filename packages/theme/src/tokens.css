@@ -187,6 +187,28 @@
   --bambi-button-success-foreground: var(--bambi-success-foreground);
   --bambi-button-warning-bg: var(--bambi-warning);
   --bambi-button-warning-foreground: var(--bambi-warning-foreground);
+
+  /* ─── Tabs ───────────────────────────────────────── */
+  --bambi-tab-list-bg: var(--bambi-muted);
+  --bambi-tab-list-radius: var(--bambi-radius-md);
+  --bambi-tab-list-padding: 0.25rem;
+  --bambi-tab-gap: 0.125rem;
+  --bambi-tab-bg: transparent;
+  --bambi-tab-active-bg: var(--bambi-background);
+  --bambi-tab-active-shadow: var(--bambi-shadow-sm);
+  --bambi-tab-color: var(--bambi-muted-foreground);
+  --bambi-tab-active-color: var(--bambi-foreground);
+  --bambi-tab-disabled-opacity: 0.5;
+  --bambi-tab-font-family: var(--bambi-font-sans);
+  --bambi-tab-font-size: var(--bambi-text-sm);
+  --bambi-tab-font-weight: var(--bambi-font-weight-medium);
+  --bambi-tab-padding: 0.375rem 0.75rem;
+  --bambi-tab-radius: var(--bambi-radius-sm);
+  --bambi-tab-transition: background-color 0.15s ease, color 0.15s ease, box-shadow 0.15s ease;
+  --bambi-tab-panel-pt: 1rem;
+  --bambi-tab-ring: var(--bambi-ring);
+  --bambi-tab-focus-ring-width: 2px;
+  --bambi-tab-focus-ring-offset: 2px;
 }
 
 .dark {

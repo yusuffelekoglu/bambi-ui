@@ -1,4 +1,0 @@
-User-agent: *
-Allow: /
-
-Sitemap: https://bambi-ui.felekoglu.dev/sitemap-index.xml

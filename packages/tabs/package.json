@@ -1,11 +1,11 @@
 {
-  "name": "@bambi-ui/button",
-  "version": "0.0.10",
-  "description": "Accessible, themeable Button component for bambi-ui — 8 variants, 4 sizes, loading state, icon support",
+  "name": "@bambi-ui/tabs",
+  "version": "0.0.1",
+  "description": "Accessible, themeable Tabs component for bambi-ui — keyboard navigation, controlled and uncontrolled modes, disabled tabs",
   "keywords": [
     "bambi-ui",
     "react",
-    "button",
+    "tabs",
     "accessibility",
     "a11y",
     "wcag",
@@ -18,9 +18,9 @@
   "repository": {
     "type": "git",
     "url": "git+https://github.com/yusuffelekoglu/bambi-ui.git",
-    "directory": "packages/button"
+    "directory": "packages/tabs"
   },
-  "homepage": "https://github.com/yusuffelekoglu/bambi-ui/tree/main/packages/button#readme",
+  "homepage": "https://github.com/yusuffelekoglu/bambi-ui/tree/main/packages/tabs#readme",
   "bugs": {
     "url": "https://github.com/yusuffelekoglu/bambi-ui/issues"
   },
@@ -34,15 +34,14 @@
       "types": "./dist/index.d.ts",
       "import": "./dist/index.js",
       "default": "./dist/index.js"
-    },
-    "./index.css": "./dist/index.css"
+    }
   },
-  "sideEffects": ["**/*.css"],
   "scripts": {
-    "build": "tsup src/index.tsx --format esm --dts --clean",
+    "build": "tsup src/index.tsx --format esm --dts --clean --inject-style",
     "check-types": "tsc --noEmit"
   },
   "dependencies": {
+    "@bambi-ui/a11y": "workspace:*",
     "@bambi-ui/theme": "workspace:*"
   },
   "peerDependencies": {

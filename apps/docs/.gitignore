@@ -3,6 +3,7 @@ dist/
 .turbo/
 # generated types
 .astro/
+.next/
 
 
 # dependencies
