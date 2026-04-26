@@ -3,6 +3,7 @@
 import { forwardRef, type ButtonHTMLAttributes } from "react";
 import { cn } from "@bambi-ui/theme";
 import "./button.css";
+import "./button-tokens.css";
 
 export type ButtonVariant =
   | "primary"

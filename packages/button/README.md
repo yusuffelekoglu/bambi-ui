@@ -94,43 +94,76 @@ The button is **not** natively `disabled` when loading so it stays in the access
 
 ## Theming
 
-All visual properties reference `--bambi-*` CSS custom properties. Override them in your `global.css`:
+All button tokens are defined under `--bambi-button-*` in `@bambi-ui/theme/tokens.css` — the same file you already import. Each token defaults to the corresponding global theme token, so the button inherits your theme automatically. Override only what you need:
 
 ```css
 @import "@bambi-ui/theme/tokens.css";
 
 :root {
-  --bambi-primary: oklch(60% 0.25 30);
+  /* override a button-specific token */
+  --bambi-button-primary-bg: oklch(60% 0.25 30);
   --bambi-button-padding-md: 0.6rem 1.25rem;
   --bambi-button-spinner-duration: 0.4s;
+
+  /* or override the global theme token to affect all components */
+  --bambi-primary: oklch(60% 0.25 30);
 }
 ```
 
-| Token                              | Used for                          |
-|------------------------------------|-----------------------------------|
-| `--bambi-primary`                  | Primary / outline / link color    |
-| `--bambi-primary-foreground`       | Primary text                      |
-| `--bambi-secondary`                | Secondary background              |
-| `--bambi-destructive`              | Destructive background            |
-| `--bambi-success`                  | Success background                |
-| `--bambi-success-foreground`       | Success text                      |
-| `--bambi-warning`                  | Warning background                |
-| `--bambi-warning-foreground`       | Warning text                      |
-| `--bambi-accent`                   | Ghost hover background            |
-| `--bambi-ring`                     | Focus ring color                  |
-| `--bambi-radius-sm/md`             | Border radius by size             |
-| `--bambi-text-xs/sm/base`          | Font size by size                 |
-| `--bambi-font-weight-medium`       | Button font weight                |
-| `--bambi-button-gap`               | Gap between icon and label        |
-| `--bambi-button-border-width`      | Border width                      |
-| `--bambi-button-line-height`       | Line height                       |
-| `--bambi-button-transition`        | Hover/bg transition               |
-| `--bambi-button-hover-opacity`     | Hover opacity for filled variants |
-| `--bambi-button-disabled-opacity`  | Disabled opacity                  |
-| `--bambi-button-focus-ring-width`  | Focus ring width                  |
-| `--bambi-button-focus-ring-offset` | Focus ring offset                 |
-| `--bambi-button-link-underline-offset` | Link underline offset         |
-| `--bambi-button-outline-hover-bg`  | Outline hover background          |
-| `--bambi-button-spinner-border-width` | Loading spinner border width  |
-| `--bambi-button-spinner-duration`  | Loading spinner animation speed   |
-| `--bambi-button-padding-*`         | Padding by size (sm/md/lg/icon)   |
+### Token reference
+
+#### Variant colors
+
+| Token                                  | Default                        | Used for                       |
+|----------------------------------------|--------------------------------|--------------------------------|
+| `--bambi-button-primary-bg`            | `--bambi-primary`              | Primary background             |
+| `--bambi-button-primary-foreground`    | `--bambi-primary-foreground`   | Primary text                   |
+| `--bambi-button-secondary-bg`          | `--bambi-secondary`            | Secondary background           |
+| `--bambi-button-secondary-foreground`  | `--bambi-secondary-foreground` | Secondary text                 |
+| `--bambi-button-secondary-border`      | `--bambi-border`               | Secondary border               |
+| `--bambi-button-ghost-color`           | `--bambi-foreground`           | Ghost text                     |
+| `--bambi-button-ghost-hover-bg`        | `--bambi-accent`               | Ghost hover background         |
+| `--bambi-button-ghost-hover-color`     | `--bambi-accent-foreground`    | Ghost hover text               |
+| `--bambi-button-destructive-bg`        | `--bambi-destructive`          | Destructive background         |
+| `--bambi-button-destructive-foreground`| `--bambi-destructive-foreground`| Destructive text              |
+| `--bambi-button-outline-color`         | `--bambi-primary`              | Outline text                   |
+| `--bambi-button-outline-border`        | `--bambi-primary`              | Outline border                 |
+| `--bambi-button-outline-hover-bg`      | 10% primary tint               | Outline hover background       |
+| `--bambi-button-link-color`            | `--bambi-primary`              | Link text                      |
+| `--bambi-button-success-bg`            | `--bambi-success`              | Success background             |
+| `--bambi-button-success-foreground`    | `--bambi-success-foreground`   | Success text                   |
+| `--bambi-button-warning-bg`            | `--bambi-warning`              | Warning background             |
+| `--bambi-button-warning-foreground`    | `--bambi-warning-foreground`   | Warning text                   |
+| `--bambi-button-ring`                  | `--bambi-ring`                 | Focus ring color               |
+
+#### Layout & typography
+
+| Token                              | Default                      | Used for                          |
+|------------------------------------|------------------------------|-----------------------------------|
+| `--bambi-button-font-family`       | `--bambi-font-sans`          | Font family                       |
+| `--bambi-button-font-size-sm`      | `--bambi-text-xs`            | Font size for `size="sm"`         |
+| `--bambi-button-font-size-md`      | `--bambi-text-sm`            | Font size for `size="md"`         |
+| `--bambi-button-font-size-lg`      | `--bambi-text-base`          | Font size for `size="lg"`         |
+| `--bambi-button-font-weight`       | `--bambi-font-weight-medium` | Font weight                       |
+| `--bambi-button-radius`            | `--bambi-radius-md`          | Border radius (default)           |
+| `--bambi-button-radius-sm`         | `--bambi-radius-sm`          | Border radius for `size="sm"`     |
+| `--bambi-button-gap`               | `0.375rem`                   | Gap between icon and label        |
+| `--bambi-button-border-width`      | `1px`                        | Border width                      |
+| `--bambi-button-line-height`       | `1`                          | Line height                       |
+| `--bambi-button-padding-sm`        | `0.375rem 0.75rem`           | Padding for `size="sm"`           |
+| `--bambi-button-padding-md`        | `0.5rem 1rem`                | Padding for `size="md"`           |
+| `--bambi-button-padding-lg`        | `0.625rem 1.25rem`           | Padding for `size="lg"`           |
+| `--bambi-button-padding-icon`      | `0.5rem`                     | Padding for `size="icon"`         |
+
+#### States & animation
+
+| Token                                 | Default                                          | Used for                          |
+|---------------------------------------|--------------------------------------------------|-----------------------------------|
+| `--bambi-button-transition`           | `opacity 0.15s ease, background-color 0.15s ease`| Hover/bg transition               |
+| `--bambi-button-hover-opacity`        | `0.9`                                            | Hover opacity (filled variants)   |
+| `--bambi-button-disabled-opacity`     | `0.5`                                            | Disabled opacity                  |
+| `--bambi-button-focus-ring-width`     | `2px`                                            | Focus ring width                  |
+| `--bambi-button-focus-ring-offset`    | `2px`                                            | Focus ring offset                 |
+| `--bambi-button-link-underline-offset`| `4px`                                            | Link underline offset             |
+| `--bambi-button-spinner-border-width` | `2px`                                            | Loading spinner border width      |
+| `--bambi-button-spinner-duration`     | `0.6s`                                           | Loading spinner animation speed   |

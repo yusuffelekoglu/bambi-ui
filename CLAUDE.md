@@ -132,6 +132,27 @@ Packages must stay as lean as possible. Apply this hierarchy when implementing a
 - Workflow discovers and processes all publishable packages under `packages/*`.
 - For CI publishing, use an npm **Automation token** in the `NPM_TOKEN` secret to avoid interactive OTP prompts.
 
+## Component tokens
+
+All tokens — global theme and component-specific — live in `packages/theme/src/tokens.css`. Users import this single file and get everything. Component sections are clearly delimited with a comment (e.g. `/* ─── Button ─── */`).
+
+**Rules:**
+- Every CSS custom property used by a component must be prefixed with `--bambi-<component>-` (e.g. `--bambi-button-primary-bg`) and defined in `tokens.css` under its component section.
+- Component tokens that map to a theme token default to it via `var(--bambi-*)`. Example:
+  ```css
+  /* in tokens.css — button section */
+  --bambi-button-primary-bg: var(--bambi-primary);
+  ```
+- Component CSS files (e.g. `button.css`) must only reference `--bambi-<component>-*` tokens — never reference global theme tokens directly. Example:
+  ```css
+  /* ✗ wrong — direct theme reference in component CSS */
+  background-color: var(--bambi-primary);
+
+  /* ✓ correct */
+  background-color: var(--bambi-button-primary-bg);
+  ```
+- This lets consumers override a single component's look without touching global theme tokens, while keeping a single CSS import.
+
 ## Design tokens (`packages/theme/src/tokens.css`)
 
 All tokens are defined as `--bambi-*` CSS custom properties and exposed to Tailwind v4 via `@theme inline`. The full token set:
