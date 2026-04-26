@@ -1,6 +1,18 @@
 {
   "name": "@bambi-ui/theme",
-  "version": "0.0.9",
+  "version": "0.0.10",
+  "description": "Design tokens and theming utilities for bambi-ui — CSS custom properties, Tailwind v4 integration, and the cn utility",
+  "keywords": [
+    "bambi-ui",
+    "react",
+    "theme",
+    "design-tokens",
+    "css-variables",
+    "tailwind",
+    "oklch",
+    "theming",
+    "typescript"
+  ],
   "private": false,
   "license": "MIT",
   "repository": {

@@ -1,6 +1,18 @@
 {
   "name": "@bambi-ui/card",
-  "version": "0.0.9",
+  "version": "0.0.10",
+  "description": "Semantic Card component for bambi-ui — accessible surface with composable layout",
+  "keywords": [
+    "bambi-ui",
+    "react",
+    "card",
+    "accessibility",
+    "a11y",
+    "wcag",
+    "component",
+    "ui",
+    "typescript"
+  ],
   "private": false,
   "license": "MIT",
   "repository": {

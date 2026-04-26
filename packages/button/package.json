@@ -1,6 +1,18 @@
 {
   "name": "@bambi-ui/button",
-  "version": "0.0.9",
+  "version": "0.0.10",
+  "description": "Accessible, themeable Button component for bambi-ui — 8 variants, 4 sizes, loading state, icon support",
+  "keywords": [
+    "bambi-ui",
+    "react",
+    "button",
+    "accessibility",
+    "a11y",
+    "wcag",
+    "component",
+    "ui",
+    "typescript"
+  ],
   "private": false,
   "license": "MIT",
   "repository": {

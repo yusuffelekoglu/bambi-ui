@@ -1,6 +1,20 @@
 {
   "name": "@bambi-ui/color-picker",
-  "version": "0.0.9",
+  "version": "0.0.10",
+  "description": "Accessible color picker component for bambi-ui — keyboard-navigable oklch color selection",
+  "keywords": [
+    "bambi-ui",
+    "react",
+    "color-picker",
+    "color",
+    "oklch",
+    "accessibility",
+    "a11y",
+    "wcag",
+    "component",
+    "ui",
+    "typescript"
+  ],
   "private": false,
   "license": "MIT",
   "repository": {

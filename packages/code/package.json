@@ -1,6 +1,16 @@
 {
   "name": "@bambi-ui/code",
-  "version": "0.0.9",
+  "version": "0.0.10",
+  "description": "Inline code component for bambi-ui — styled monospace code snippet",
+  "keywords": [
+    "bambi-ui",
+    "react",
+    "code",
+    "inline-code",
+    "component",
+    "ui",
+    "typescript"
+  ],
   "private": false,
   "license": "MIT",
   "repository": {

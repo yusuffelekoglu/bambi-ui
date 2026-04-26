@@ -48,6 +48,10 @@ cn("base-class", condition && "conditional", className);
 | `--bambi-muted-foreground`     | `oklch(45% 0 0)`             | `oklch(60% 0 0)`             |
 | `--bambi-destructive`          | `oklch(55% 0.22 25)`         | `oklch(60% 0.22 25)`         |
 | `--bambi-destructive-foreground` | `oklch(98% 0 0)`           | `oklch(98% 0 0)`             |
+| `--bambi-success`              | `oklch(55% 0.17 145)`        | `oklch(65% 0.17 145)`        |
+| `--bambi-success-foreground`   | `oklch(98% 0 0)`             | `oklch(98% 0 0)`             |
+| `--bambi-warning`              | `oklch(75% 0.17 70)`         | `oklch(80% 0.17 70)`         |
+| `--bambi-warning-foreground`   | `oklch(15% 0 0)`             | `oklch(15% 0 0)`             |
 | `--bambi-border`               | `oklch(88% 0 0)`             | `oklch(22% 0 0)`             |
 | `--bambi-input`                | `oklch(88% 0 0)`             | `oklch(22% 0 0)`             |
 | `--bambi-ring`                 | `oklch(55% 0.22 250)`        | `oklch(65% 0.22 250)`        |
@@ -87,11 +91,24 @@ cn("base-class", condition && "conditional", className);
 
 ### Component tokens
 
-| Token                        | Default       | Description                        |
-|------------------------------|---------------|------------------------------------|
-| `--bambi-button-padding-sm`  | `0.375rem 0.75rem` | Button small size padding     |
-| `--bambi-button-padding-md`  | `0.5rem 1rem`      | Button medium size padding    |
-| `--bambi-button-padding-lg`  | `0.625rem 1.25rem` | Button large size padding     |
+| Token                                  | Default                    | Description                        |
+|----------------------------------------|----------------------------|------------------------------------|
+| `--bambi-button-padding-sm`            | `0.375rem 0.75rem`         | Button small size padding          |
+| `--bambi-button-padding-md`            | `0.5rem 1rem`              | Button medium size padding         |
+| `--bambi-button-padding-lg`            | `0.625rem 1.25rem`         | Button large size padding          |
+| `--bambi-button-padding-icon`          | `0.5rem`                   | Button icon size padding           |
+| `--bambi-button-gap`                   | `0.375rem`                 | Gap between icon and label         |
+| `--bambi-button-border-width`          | `1px`                      | Button border width                |
+| `--bambi-button-line-height`           | `1`                        | Button line height                 |
+| `--bambi-button-transition`            | `opacity 0.15s ease, …`    | Hover/bg transition                |
+| `--bambi-button-hover-opacity`         | `0.9`                      | Hover opacity for filled variants  |
+| `--bambi-button-disabled-opacity`      | `0.5`                      | Disabled state opacity             |
+| `--bambi-button-focus-ring-width`      | `2px`                      | Focus ring width                   |
+| `--bambi-button-focus-ring-offset`     | `2px`                      | Focus ring offset                  |
+| `--bambi-button-link-underline-offset` | `4px`                      | Link variant underline offset      |
+| `--bambi-button-outline-hover-bg`      | `color-mix(…primary 10%)` | Outline variant hover background   |
+| `--bambi-button-spinner-border-width`  | `2px`                      | Loading spinner border width       |
+| `--bambi-button-spinner-duration`      | `0.6s`                     | Loading spinner animation speed    |
 
 ## Overriding tokens
 

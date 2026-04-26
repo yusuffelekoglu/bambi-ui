@@ -3,9 +3,20 @@ import "../styles/global.css";
 
 interface Props {
   title: string;
+  description?: string;
+  keywords?: string;
   wide?: boolean;
 }
-const { title, wide = false } = Astro.props;
+
+const {
+  title,
+  description = "bambi-ui is an accessibility-first React UI component library built on web standards. WCAG 2.2 AA compliant components with full keyboard and screen-reader support.",
+  keywords = "bambi-ui, react, ui, component library, accessibility, a11y, wcag, typescript, tailwind, design tokens",
+  wide = false,
+} = Astro.props;
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+const pageTitle = title === "Overview" ? "bambi-ui — Accessible React UI" : `${title} — bambi-ui`;
 ---
 
 <html lang="en">
@@ -14,7 +25,23 @@ const { title, wide = false } = Astro.props;
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
-    <title>{title} — @bambi-ui</title>
+    <title>{pageTitle}</title>
+    <meta name="description" content={description} />
+    <meta name="keywords" content={keywords} />
+    <link rel="canonical" href={canonicalURL} />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="bambi-ui" />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonicalURL} />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content={pageTitle} />
+    <meta name="twitter:description" content={description} />
+
     {/* Inline script prevents flash of wrong theme */}
     <script is:inline>
       const stored = localStorage.getItem("theme");

@@ -1,6 +1,20 @@
 {
   "name": "@bambi-ui/a11y",
-  "version": "0.0.9",
+  "version": "0.0.10",
+  "description": "Accessibility primitives for bambi-ui — focus management, keyboard interaction, live regions, and WCAG-compliant React utilities",
+  "keywords": [
+    "bambi-ui",
+    "react",
+    "accessibility",
+    "a11y",
+    "wcag",
+    "aria",
+    "focus-trap",
+    "focus-ring",
+    "keyboard",
+    "live-region",
+    "typescript"
+  ],
   "private": false,
   "license": "MIT",
   "repository": {
